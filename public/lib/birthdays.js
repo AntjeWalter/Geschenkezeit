@@ -3,7 +3,7 @@ export const listOfBirthdays = [
     id: 1,
     name: "Max Mustermann",
     birthday: "01.01.2001",
-    idea: "idea1",
+    idea: ["idea1", "idea2", "idea3", "idea4", "idea5"],
   },
   {
     id: 2,

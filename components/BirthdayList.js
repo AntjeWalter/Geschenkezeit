@@ -7,7 +7,7 @@ export default function BirthdayList() {
       <tbody key={birthday.id}>
         <tr>
           <td>{birthday.name}</td>
-          <td>{birthday.idea}</td>
+          <td>{[birthday.idea].join(", ")}</td>
           <td>{birthday.birthday}</td>
         </tr>
       </tbody>
@@ -20,4 +20,5 @@ const StyledTable = styled.table`
   font-family: AppleGothic;
   margin: auto;
   width: 90%;
+  word-break: break-all;
 `;
