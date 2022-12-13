@@ -10,26 +10,8 @@ export default function BirthdayList() {
       </tr>
     );
   });
-  return (
-    <>
-      <StyledSection>
-        <StyledHeading>Geburtstage</StyledHeading>
-        <StyledTable>{birthdays}</StyledTable>
-      </StyledSection>
-    </>
-  );
+  return <StyledTable>{birthdays}</StyledTable>;
 }
-
-const StyledSection = styled.section`
-  position: relative;
-`;
-
-const StyledHeading = styled.h2`
-  font-family: AppleGothic;
-  margin-left: 30px;
-  margin-right: 30px;
-  border-bottom: 2px solid #fe4a49;
-`;
 
 const StyledTable = styled.table`
   font-family: AppleGothic;
