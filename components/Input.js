@@ -29,7 +29,12 @@ export default function Input({ onCreateEntry }) {
         placeholder="Geschenkideen"
         name="idea"
       ></StyledIdeaInput>
-      <StyledDateInput type="date" placeholder="Geburtstag" name="date" />
+      <StyledDateInput
+        type="date"
+        placeholder="Geburtstag"
+        name="date"
+        min="1900-01-01"
+      />
       <StyledSubmitButton type="submit">Hinzufügen</StyledSubmitButton>
     </StyledForm>
   );
@@ -39,13 +44,14 @@ const StyledForm = styled.form`
   position: fixed;
   display: flex;
   flex-wrap: wrap;
+  justify-items: center;
   bottom: 20px;
   gap: 10px;
-  margin: 25px;
-  margin-right: 25px;
+  margin-bottom: 25px;
   background-color: #f4f4f8;
   padding: 20px;
-  width: 90%;
+  max-width: 800px;
+  width: 100vw;
 `;
 
 const StyledNameInput = styled.input`
@@ -54,6 +60,7 @@ const StyledNameInput = styled.input`
   font-family: AppleGothic;
   text-align: center;
   flex-grow: 1;
+  padding: 5px;
 `;
 
 const StyledIdeaInput = styled.input`

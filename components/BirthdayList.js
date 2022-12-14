@@ -4,32 +4,36 @@ import styled from "styled-components";
 export default function BirthdayList({ id, name, birthday, ideas }) {
   return (
     <StyledTable>
-      <tbody key={id}>
-        <StyledTableData>
-          <td>{name}</td>
-          <td>{ideas.join(", ")}</td>
-          <StyledBirthday>{birthday}</StyledBirthday>
-        </StyledTableData>
-      </tbody>
+      <StyledName>{name}</StyledName>
+      <StyledIdeas>{ideas.join(", ")}</StyledIdeas>
+      <StyledBirthday>{birthday}</StyledBirthday>
     </StyledTable>
   );
 }
 
-const StyledTable = styled.table`
+const StyledTable = styled.div`
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-areas: "a b c";
   font-family: AppleGothic;
   margin: auto;
+  margin-bottom: 10px;
   width: 90%;
   word-wrap: break-word;
   background-color: #e6e6ea;
-  padding: 5px;
-  border: 5px solid #f4f4f8;
+  padding: 15px;
+  border-radius: 5px;
 `;
 
-const StyledTableData = styled.td`
-  border-collapse: separate;
-  border-spacing: 1.5em;
+const StyledName = styled.div`
+  grid-area: "a";
 `;
 
-const StyledBirthday = styled.td`
+const StyledIdeas = styled.div`
+  grid-area: "b";
+`;
+
+const StyledBirthday = styled.div`
+  grid-area: "c";
   text-align: right;
 `;
