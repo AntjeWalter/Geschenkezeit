@@ -10,7 +10,6 @@ export default function Home() {
   function handleCreateEntry(newEntry) {
     setEntries([...entries, newEntry]);
   }
-  //console.log(entries);
 
   return (
     <>
