@@ -10,12 +10,22 @@ export default function Home() {
   function handleCreateEntry(newEntry) {
     setEntries([...entries, newEntry]);
   }
+  //console.log(entries);
 
   return (
     <>
       <Header />
       <StyledHeading>Geburtstage</StyledHeading>
-      <BirthdayList />
+      {entries.map((entry) => (
+        <BirthdayList
+          key={entry.id}
+          id={entry.id}
+          name={entry.name}
+          birthday={entry.birthday}
+          ideas={[entry.ideas]}
+        />
+      ))}
+
       <Input onCreateEntry={handleCreateEntry} />
     </>
   );

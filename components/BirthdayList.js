@@ -1,19 +1,18 @@
-import { listOfBirthdays } from "../public/lib/birthdays";
+//import { listOfBirthdays } from "../public/lib/birthdays";
 import styled from "styled-components";
 
-export default function BirthdayList() {
-  const birthdays = listOfBirthdays.map((birthday) => {
-    return (
-      <tbody key={birthday.id}>
+export default function BirthdayList({ id, name, birthday, ideas }) {
+  return (
+    <StyledTable>
+      <tbody key={id}>
         <tr>
-          <td>{birthday.name}</td>
-          <td>{birthday.ideas.join(", ")}</td>
-          <td>{birthday.birthday}</td>
+          <td>{name}</td>
+          <td>{ideas.join(", ")}</td>
+          <td>{birthday}</td>
         </tr>
       </tbody>
-    );
-  });
-  return <StyledTable>{birthdays}</StyledTable>;
+    </StyledTable>
+  );
 }
 
 const StyledTable = styled.table`
