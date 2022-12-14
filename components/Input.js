@@ -36,12 +36,16 @@ export default function Input({ onCreateEntry }) {
 }
 
 const StyledForm = styled.form`
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-wrap: wrap;
   bottom: 20px;
   gap: 10px;
   margin: 25px;
+  margin-right: 25px;
+  background-color: #f4f4f8;
+  padding: 20px;
+  width: 90%;
 `;
 
 const StyledNameInput = styled.input`

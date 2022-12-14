@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+        background-color: #f4f4f8;
     }
 
     * {

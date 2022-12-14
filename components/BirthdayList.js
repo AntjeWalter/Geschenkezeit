@@ -5,11 +5,11 @@ export default function BirthdayList({ id, name, birthday, ideas }) {
   return (
     <StyledTable>
       <tbody key={id}>
-        <tr>
+        <StyledTableData>
           <td>{name}</td>
           <td>{ideas.join(", ")}</td>
-          <td>{birthday}</td>
-        </tr>
+          <StyledBirthday>{birthday}</StyledBirthday>
+        </StyledTableData>
       </tbody>
     </StyledTable>
   );
@@ -20,4 +20,16 @@ const StyledTable = styled.table`
   margin: auto;
   width: 90%;
   word-wrap: break-word;
+  background-color: #e6e6ea;
+  padding: 5px;
+  border: 5px solid #f4f4f8;
+`;
+
+const StyledTableData = styled.td`
+  border-collapse: separate;
+  border-spacing: 1.5em;
+`;
+
+const StyledBirthday = styled.td`
+  text-align: right;
 `;
