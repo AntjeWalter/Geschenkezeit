@@ -1,17 +1,16 @@
-//import { listOfBirthdays } from "../public/lib/birthdays";
 import styled from "styled-components";
 
 export default function BirthdayList({ id, name, birthday, ideas }) {
   return (
-    <StyledTable>
+    <StyledEntry>
       <StyledName>{name}</StyledName>
       <StyledIdeas>{ideas.join(", ")}</StyledIdeas>
       <StyledBirthday>{birthday}</StyledBirthday>
-    </StyledTable>
+    </StyledEntry>
   );
 }
 
-const StyledTable = styled.div`
+const StyledEntry = styled.section`
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-template-areas: "a b c";

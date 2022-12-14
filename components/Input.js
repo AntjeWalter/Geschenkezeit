@@ -1,4 +1,3 @@
-//import { listOfBirthdays } from "../public/lib/birthdays";
 import { nanoid } from "nanoid";
 import styled from "styled-components";
 
