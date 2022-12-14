@@ -5,7 +5,10 @@ const GlobalStyles = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif,
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     * {

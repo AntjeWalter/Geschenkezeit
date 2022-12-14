@@ -1,13 +1,22 @@
 import BirthdayList from "../components/BirthdayList";
 import Header from "../components/Header";
+import Input from "../components/Input";
 import styled from "styled-components";
+import { useState } from "react";
 
 export default function Home() {
+  const [entries, setEntries] = useState([]);
+
+  function handleCreateEntry(newEntry) {
+    setEntries([...entries, newEntry]);
+  }
+
   return (
     <>
       <Header />
       <StyledHeading>Geburtstage</StyledHeading>
       <BirthdayList />
+      <Input onCreateEntry={handleCreateEntry} />
     </>
   );
 }
