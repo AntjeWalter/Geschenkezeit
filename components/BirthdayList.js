@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default function BirthdayList({ id, name, birthday, ideas }) {
   return (
     <StyledEntry>
-      <StyledName>{name}</StyledName>
-      <StyledIdeas>{ideas.join(", ")}</StyledIdeas>
+      <div>{name}</div>
+      <div>{ideas.join(", ")}</div>
       <StyledBirthday>{birthday}</StyledBirthday>
     </StyledEntry>
   );
@@ -13,7 +13,6 @@ export default function BirthdayList({ id, name, birthday, ideas }) {
 const StyledEntry = styled.section`
   display: grid;
   grid-template-columns: 20% 60% 20%;
-  grid-template-areas: "a b c";
   font-family: AppleGothic;
   margin: auto;
   margin-bottom: 10px;
@@ -24,15 +23,6 @@ const StyledEntry = styled.section`
   border-radius: 5px;
 `;
 
-const StyledName = styled.div`
-  grid-area: "a";
-`;
-
-const StyledIdeas = styled.div`
-  grid-area: "b";
-`;
-
 const StyledBirthday = styled.div`
-  grid-area: "c";
   text-align: right;
 `;
