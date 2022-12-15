@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import styled from "styled-components";
 
-export default function Input({ onCreateEntry }) {
+export default function Form({ onCreateEntry }) {
   function handleSubmit(event) {
     event.preventDefault();
     const nameInput = event.target.name.value;
@@ -22,6 +22,7 @@ export default function Input({ onCreateEntry }) {
         type="text"
         placeholder="Name"
         name="name"
+        required
       ></StyledNameInput>
       <StyledIdeaInput
         type="text"
@@ -33,6 +34,7 @@ export default function Input({ onCreateEntry }) {
         placeholder="Geburtstag"
         name="date"
         min="1900-01-01"
+        required
       />
       <StyledSubmitButton type="submit">Hinzufügen</StyledSubmitButton>
     </StyledForm>

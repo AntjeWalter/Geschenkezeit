@@ -1,6 +1,6 @@
-// taken from: https://github.com/pixelass/local-storage-next/blob/main/hooks/useLocalStorage.js
-
 import { useCallback, useEffect, useState } from "react";
+
+// taken from: https://github.com/pixelass/local-storage-next/blob/main/hooks/useLocalStorage.js
 
 /**
  * A hook to use localStorage with SSR.
