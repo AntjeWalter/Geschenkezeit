@@ -1,24 +1,28 @@
-import { listOfBirthdays } from "../public/lib/birthdays";
 import styled from "styled-components";
 
-export default function BirthdayList() {
-  const birthdays = listOfBirthdays.map((birthday) => {
-    return (
-      <tbody key={birthday.id}>
-        <tr>
-          <td>{birthday.name}</td>
-          <td>{birthday.ideas.join(", ")}</td>
-          <td>{birthday.birthday}</td>
-        </tr>
-      </tbody>
-    );
-  });
-  return <StyledTable>{birthdays}</StyledTable>;
+export default function BirthdayList({ id, name, birthday, ideas }) {
+  return (
+    <StyledEntry>
+      <div>{name}</div>
+      <div>{ideas.join(", ")}</div>
+      <StyledBirthday>{birthday}</StyledBirthday>
+    </StyledEntry>
+  );
 }
 
-const StyledTable = styled.table`
+const StyledEntry = styled.section`
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
   font-family: AppleGothic;
   margin: auto;
+  margin-bottom: 10px;
   width: 90%;
   word-wrap: break-word;
+  background-color: #e6e6ea;
+  padding: 15px;
+  border-radius: 5px;
+`;
+
+const StyledBirthday = styled.div`
+  text-align: right;
 `;
