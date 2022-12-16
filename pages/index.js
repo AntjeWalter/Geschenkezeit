@@ -12,7 +12,7 @@ export default function Home() {
     setEntries([...entries, newEntry]);
   }
 
-  function onUpdateEntry(editedEntry) {
+  function handleUpdateEntry(editedEntry) {
     setEntries(
       entries.map((entry) => {
         if (entry.id === editedEntry.id) {
@@ -43,7 +43,7 @@ export default function Home() {
             name={entry.name}
             birthday={entry.birthday}
             ideas={[entry.ideas]}
-            onUpdateEntry={onUpdateEntry}
+            onUpdateEntry={handleUpdateEntry}
             onDelete={handleDelete}
           />
         ))}

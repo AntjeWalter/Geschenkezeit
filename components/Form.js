@@ -11,9 +11,11 @@ export default function Form({ onCreateEntry }) {
       id: nanoid(),
       name: nameInput,
       birthday: dateInput,
-      ideas: [ideaInput],
+      ideas: ideaInput,
     };
     onCreateEntry(newEntry);
+    event.target.reset();
+    event.target.elements.name.focus();
   }
 
   return (
@@ -22,21 +24,26 @@ export default function Form({ onCreateEntry }) {
         type="text"
         placeholder="Name"
         name="name"
+        aria-label="Name Input"
         required
       ></StyledNameInput>
       <StyledIdeaInput
         type="text"
         placeholder="Geschenkideen"
         name="idea"
+        aria-label="Idea Input"
       ></StyledIdeaInput>
       <StyledDateInput
         type="date"
         placeholder="Geburtstag"
         name="date"
+        aria-label="Birthday Input"
         min="1900-01-01"
         required
       />
-      <StyledSubmitButton type="submit">Hinzufügen</StyledSubmitButton>
+      <StyledSubmitButton type="submit" aria-label="Submit Input">
+        Hinzufügen
+      </StyledSubmitButton>
     </StyledForm>
   );
 }

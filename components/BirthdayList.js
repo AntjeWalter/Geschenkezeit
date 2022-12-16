@@ -26,39 +26,53 @@ export default function BirthdayList({
     setEdit(!edit);
   }
 
+  //If the edit-state is true after clicking edit-button, the edit input fields will open up. Otherwise, the entries are displayed in their original state.
   return (
     <>
       {edit === true ? (
         <StyledEditForm onSubmit={handleEditSubmit}>
-          <StyledAdaptedName
+          <StyledAdaptedInput
             name="adaptedName"
-            placeholder="Namen anpassen..."
+            aria-label="Edited Name"
+            defaultValue={name}
+            // placeholder="Namen anpassen..."
             required
-          ></StyledAdaptedName>
-          <StyledAdaptedIdeas
+          ></StyledAdaptedInput>
+          <StyledAdaptedInput
             name="adaptedIdeas"
-            placeholder="Ideen anpassen..."
-          ></StyledAdaptedIdeas>
-          <StyledAdaptedBirthday
+            aria-label="Edited Ideas"
+            defaultValue={ideas}
+          ></StyledAdaptedInput>
+          <StyledAdaptedInput
+            type="date"
             name="adaptedBirthday"
-            placeholder="Geburtstag anpassen..."
+            aria-label="Edited Birthday"
+            defaultValue={birthday}
             required
-          ></StyledAdaptedBirthday>
+          ></StyledAdaptedInput>
           <StyledSubmitButton type="submit">OK</StyledSubmitButton>
         </StyledEditForm>
       ) : (
         <StyledEntry>
           <div>{name}</div>
-          <div>{ideas.join(", ")}</div>
-          <StyledBirthday contentEditable="true">{birthday}</StyledBirthday>
-          <StyledButtons>
-            <StyledEditButton type="button" onClick={() => setEdit(!edit)}>
+          <div>{ideas}</div>
+          <StyledTextAlign>{birthday}</StyledTextAlign>
+          <StyledTextAlign>
+            <StyledButton
+              type="button"
+              aria-label="Edit-Button"
+              onClick={() => setEdit(!edit)}
+            >
               ✍🏼
-            </StyledEditButton>
-            <StyledDeleteButton type="button" onClick={() => onDelete(id)}>
+            </StyledButton>
+            <StyledButton
+              type="button"
+              aria-label="Delete-Button"
+              onClick={() => onDelete(id)}
+            >
               🗑
-            </StyledDeleteButton>
-          </StyledButtons>
+            </StyledButton>
+          </StyledTextAlign>
         </StyledEntry>
       )}
     </>
@@ -67,25 +81,13 @@ export default function BirthdayList({
 
 const StyledEditForm = styled.form`
   display: flex;
+  flex-wrap: wrap;
   margin-left: 25px;
   padding: 5px;
+  margin-right: 25px;
 `;
 
-const StyledAdaptedName = styled.input`
-  border: none;
-  padding: 5px;
-  margin: 5px;
-  flex-grow: 1;
-`;
-
-const StyledAdaptedIdeas = styled.input`
-  border: none;
-  padding: 5px;
-  margin: 5px;
-  flex-grow: 1;
-`;
-
-const StyledAdaptedBirthday = styled.input`
+const StyledAdaptedInput = styled.input`
   border: none;
   padding: 5px;
   margin: 5px;
@@ -96,6 +98,8 @@ const StyledSubmitButton = styled.button`
   border: none;
   border-radius: 5px;
   background-color: #fed766;
+  flex-grow: 1;
+  padding: 5px;
 `;
 
 const StyledEntry = styled.section`
@@ -109,24 +113,15 @@ const StyledEntry = styled.section`
   background-color: #e6e6ea;
   padding: 15px;
   border-radius: 5px;
+  align-items: center;
+  font-size: 0.9rem;
 `;
 
-const StyledBirthday = styled.div`
+const StyledTextAlign = styled.div`
   text-align: right;
 `;
 
-const StyledButtons = styled.div`
-  text-align: right;
-`;
-
-const StyledEditButton = styled.button`
-  border: none;
-  border-radius: 5px;
-  margin: 3px;
-  font-size: 1rem;
-`;
-
-const StyledDeleteButton = styled.button`
+const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   margin: 3px;
