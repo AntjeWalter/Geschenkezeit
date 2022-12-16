@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import format from "date-fns/format";
 
 export default function BirthdayList({
   id,
@@ -15,7 +16,10 @@ export default function BirthdayList({
     event.preventDefault();
     const adaptedName = event.target.adaptedName.value;
     const adaptedIdeas = event.target.adaptedIdeas.value;
-    const adaptedBirthday = event.target.adaptedBirthday.value;
+    const adaptedBirthday = format(
+      new Date(event.target.adaptedBirthday.value),
+      "dd'.'MM'.'yyyy"
+    );
     const editedEntry = {
       id,
       name: adaptedName,
@@ -56,7 +60,7 @@ export default function BirthdayList({
         <StyledEntry>
           <div>{name}</div>
           <div>{ideas}</div>
-          <StyledTextAlign>{birthday.toLocaleString()}</StyledTextAlign>
+          <StyledTextAlign>{birthday}</StyledTextAlign>
           <StyledTextAlign>
             <StyledButton
               type="button"
@@ -119,6 +123,7 @@ const StyledEntry = styled.section`
 
 const StyledTextAlign = styled.div`
   text-align: right;
+  word-wrap: break-word;
 `;
 
 const StyledButton = styled.button`
