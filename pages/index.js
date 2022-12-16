@@ -1,6 +1,6 @@
 import BirthdayList from "../components/BirthdayList";
 import Header from "../components/Header";
-import Input from "../components/Input";
+import Input from "../components/Form";
 import Footer from "../components/Footer";
 import styled from "styled-components";
 import { useState } from "react";
@@ -10,6 +10,25 @@ export default function Home() {
 
   function handleCreateEntry(newEntry) {
     setEntries([...entries, newEntry]);
+  }
+
+  function handleUpdateEntry(editedEntry) {
+    setEntries(
+      entries.map((entry) => {
+        if (entry.id === editedEntry.id) {
+          return editedEntry;
+        } else {
+          return entry;
+        }
+      })
+    );
+  }
+
+  function handleDelete(id) {
+    const updatedList = entries.filter((entry) => {
+      return entry.id !== id;
+    });
+    setEntries([...updatedList]);
   }
 
   return (
@@ -24,6 +43,8 @@ export default function Home() {
             name={entry.name}
             birthday={entry.birthday}
             ideas={[entry.ideas]}
+            onUpdateEntry={handleUpdateEntry}
+            onDelete={handleDelete}
           />
         ))}
       </StyledSection>
