@@ -42,7 +42,7 @@ export default function Home() {
             id={entry.id}
             name={entry.name}
             birthday={entry.birthday}
-            ideas={[entry.ideas]}
+            ideas={entry.ideas}
             onUpdateEntry={handleUpdateEntry}
             onDelete={handleDelete}
           />

@@ -39,7 +39,6 @@ export default function BirthdayList({
             name="adaptedName"
             aria-label="Edited Name"
             defaultValue={name}
-            // placeholder="Namen anpassen..."
             required
           ></StyledAdaptedInput>
           <StyledAdaptedInput

@@ -20,7 +20,6 @@ export default function Form({ onCreateEntry }) {
     };
     onCreateEntry(newEntry);
     event.target.reset();
-    event.target.elements.name.focus();
   }
 
   return (
