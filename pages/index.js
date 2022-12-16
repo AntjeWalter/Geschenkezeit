@@ -3,10 +3,10 @@ import Header from "../components/Header";
 import Input from "../components/Form";
 import Footer from "../components/Footer";
 import styled from "styled-components";
-import { useState } from "react";
+import { useLocalStorage } from "../helpers/hooks";
 
 export default function Home() {
-  const [entries, setEntries] = useState([]);
+  const [entries, setEntries] = useLocalStorage("entries", []);
 
   function handleCreateEntry(newEntry) {
     setEntries([...entries, newEntry]);
@@ -42,7 +42,7 @@ export default function Home() {
             id={entry.id}
             name={entry.name}
             birthday={entry.birthday}
-            ideas={[entry.ideas]}
+            ideas={entry.ideas}
             onUpdateEntry={handleUpdateEntry}
             onDelete={handleDelete}
           />

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import format from "date-fns/format";
 
 export default function BirthdayList({
   id,
@@ -15,7 +16,10 @@ export default function BirthdayList({
     event.preventDefault();
     const adaptedName = event.target.adaptedName.value;
     const adaptedIdeas = event.target.adaptedIdeas.value;
-    const adaptedBirthday = event.target.adaptedBirthday.value;
+    const adaptedBirthday = format(
+      new Date(event.target.adaptedBirthday.value),
+      "dd'.'MM'.'yyyy"
+    );
     const editedEntry = {
       id,
       name: adaptedName,
@@ -35,7 +39,6 @@ export default function BirthdayList({
             name="adaptedName"
             aria-label="Edited Name"
             defaultValue={name}
-            // placeholder="Namen anpassen..."
             required
           ></StyledAdaptedInput>
           <StyledAdaptedInput
@@ -119,6 +122,7 @@ const StyledEntry = styled.section`
 
 const StyledTextAlign = styled.div`
   text-align: right;
+  word-wrap: break-word;
 `;
 
 const StyledButton = styled.button`
