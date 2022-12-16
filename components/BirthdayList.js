@@ -56,7 +56,7 @@ export default function BirthdayList({
         <StyledEntry>
           <div>{name}</div>
           <div>{ideas}</div>
-          <StyledTextAlign>{birthday}</StyledTextAlign>
+          <StyledTextAlign>{birthday.toLocaleString()}</StyledTextAlign>
           <StyledTextAlign>
             <StyledButton
               type="button"
