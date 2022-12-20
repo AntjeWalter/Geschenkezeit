@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import format from "date-fns/format";
+import Link from "next/link";
 
 export default function BirthdayList({
   id,
@@ -57,9 +58,11 @@ export default function BirthdayList({
         </StyledEditForm>
       ) : (
         <StyledEntry>
-          <div>{name}</div>
-          <div>{ideas}</div>
-          <StyledTextAlign>{birthday}</StyledTextAlign>
+          <Link href={`/${name}`}>
+            <div>{name}</div>
+            <div>{ideas}</div>
+            <StyledTextAlign>{birthday}</StyledTextAlign>
+          </Link>
           <StyledTextAlign>
             <StyledButton
               type="button"
@@ -118,6 +121,8 @@ const StyledEntry = styled.section`
   border-radius: 5px;
   align-items: center;
   font-size: 0.9rem;
+  text-decoration: none;
+  color: black;
 `;
 
 const StyledTextAlign = styled.div`
