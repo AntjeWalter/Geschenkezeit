@@ -58,11 +58,11 @@ export default function BirthdayList({
         </StyledEditForm>
       ) : (
         <StyledEntry>
-          <Link href={`/${name}`}>
+          <StyledLink href={`/${name}`}>
             <div>{name}</div>
             <div>{ideas}</div>
             <StyledTextAlign>{birthday}</StyledTextAlign>
-          </Link>
+          </StyledLink>
           <StyledTextAlign>
             <StyledButton
               type="button"
@@ -110,7 +110,7 @@ const StyledSubmitButton = styled.button`
 
 const StyledEntry = styled.section`
   display: grid;
-  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-columns: 80% 20%;
   font-family: AppleGothic;
   margin: auto;
   margin-bottom: 10px;
@@ -121,6 +121,11 @@ const StyledEntry = styled.section`
   border-radius: 5px;
   align-items: center;
   font-size: 0.9rem;
+`;
+
+const StyledLink = styled(Link)`
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
   text-decoration: none;
   color: black;
 `;
