@@ -17,14 +17,7 @@ export default function ProfilePage({ entries }) {
     return age;
   };
 
-  const calculateDaysUntilBirthday = () => {
-    let today = new Date();
-    let year = today.getFullYear();
-    let birthday = new Date(currentProfile.birthday + 1, 2, 14);
-    const difference = birthday - today;
-
-    return difference;
-  };
+  const calculateDaysUntilBirthday = () => {};
 
   return (
     <>
