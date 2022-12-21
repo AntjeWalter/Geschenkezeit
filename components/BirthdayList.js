@@ -17,10 +17,15 @@ export default function BirthdayList({
     event.preventDefault();
     const adaptedName = event.target.adaptedName.value;
     const adaptedIdeas = event.target.adaptedIdeas.value;
+    const adaptedBirthday = event.target.adaptedBirthday.value;
+
+    /*
     const adaptedBirthday = format(
       new Date(event.target.adaptedBirthday.value),
       "dd'.'MM'.'yyyy"
     );
+    */
+
     const editedEntry = {
       id,
       name: adaptedName,
@@ -58,7 +63,7 @@ export default function BirthdayList({
         </StyledEditForm>
       ) : (
         <StyledEntry>
-          <StyledLink href={`/${name}`}>
+          <StyledLink href={`/${id}`}>
             <div>{name}</div>
             <div>{ideas}</div>
             <StyledTextAlign>{birthday}</StyledTextAlign>

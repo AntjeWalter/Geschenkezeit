@@ -7,11 +7,16 @@ export default function Form({ onCreateEntry }) {
     event.preventDefault();
     const nameInput = event.target.name.value;
     const ideaInput = event.target.idea.value;
+    const dateInput = event.target.date.value;
+
+    /*
     //library used to format date to German dates:
     const dateInput = format(
       new Date(event.target.date.value),
       "dd'.'MM'.'yyyy"
     );
+    */
+
     const newEntry = {
       id: nanoid(),
       name: nameInput,
