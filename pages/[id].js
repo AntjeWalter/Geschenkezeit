@@ -4,9 +4,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 
-export default function ProfilePage({ entries }) {
+export default function ProfilePage({ entries = [] }) {
   const router = useRouter();
   const { id } = router.query;
+
+  if (!entries) {
+    return null;
+  }
+
   const currentProfile = entries.find((entry) => entry.id === id);
 
   if (!currentProfile) {
