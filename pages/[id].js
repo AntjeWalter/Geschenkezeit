@@ -27,7 +27,7 @@ export default function ProfilePage({ entries }) {
     const birthMonth = birthDate.split("-")[1];
     const birthDay = birthDate.split("-")[2];
 
-    if (currentMonth <= birthMonth && currentDay < birthDate) {
+    if (currentMonth <= birthMonth && currentDay < birthDay) {
       const nextBirthday = new Date(
         currentYear,
         birthDate.split("-")[1] - 1,
