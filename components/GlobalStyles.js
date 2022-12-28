@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
 
     @font-face {
         font-family: AppleGothic;
-        src: url("/../../public/fonts/applegothic.ttf") format("truetype");
+        src: url("/fonts/PTSans-Regular.ttf") format("truetype");
     }
 `;
 

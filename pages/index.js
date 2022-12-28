@@ -3,10 +3,15 @@ import Header from "../components/Header";
 import Input from "../components/Form";
 import Footer from "../components/Footer";
 import styled from "styled-components";
-import useLocalStorageState from "use-local-storage-state";
+//import useLocalStorageState from "use-local-storage-state";
 
-export default function Home({ onCreateEntry, onUpdateEntry, onDelete }) {
-  const [entries] = useLocalStorageState("entries");
+export default function Home({
+  entries,
+  onCreateEntry,
+  onUpdateEntry,
+  onDelete,
+}) {
+  //const [entries] = useLocalStorageState("entries");
   return (
     <>
       <Header />
