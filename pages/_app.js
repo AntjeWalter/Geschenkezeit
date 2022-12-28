@@ -39,7 +39,6 @@ function MyApp({ Component, pageProps }) {
         onCreateEntry={handleCreateEntry}
         onUpdateEntry={handleUpdateEntry}
         onDelete={handleDelete}
-        entries={entries}
       />
     </>
   );
