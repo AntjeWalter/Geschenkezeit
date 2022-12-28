@@ -9,6 +9,7 @@ export default function ProfilePage() {
   const router = useRouter();
   const { id } = router.query;
   const [entries] = useLocalStorageState("entries");
+  console.log(entries);
   const currentProfile = entries.find((entry) => entry.id === id);
 
   const calculateAge = () => {

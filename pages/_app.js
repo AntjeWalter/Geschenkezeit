@@ -3,7 +3,9 @@ import useLocalStorageState from "use-local-storage-state";
 
 function MyApp({ Component, pageProps }) {
   const [entries, setEntries] = useLocalStorageState("entries", {
-    defaultValue: [],
+    defaultValue: [
+      { id: 1, name: "Test", birthday: "2022-01-01", ideas: "idea" },
+    ],
   });
 
   function handleCreateEntry(newEntry) {
