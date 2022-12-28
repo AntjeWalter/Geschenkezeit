@@ -2,9 +2,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import format from "date-fns/format";
-import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
-import differenceInYears from "date-fns/differenceInYears";
+import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 
 export default function ProfilePage({ entries }) {
   const router = useRouter();
@@ -14,19 +12,61 @@ export default function ProfilePage({ entries }) {
   const calculateAge = () => {
     const birthDate = currentProfile.birthday;
     const age = differenceInYears(new Date(), new Date(birthDate)) + 1;
-    return age;
+    if (age === 1) {
+      return <span>1 Jahr alt</span>;
+    }
+    return <span>{age} Jahre alt</span>;
   };
 
-  const calculateDaysUntilBirthday = () => {};
+  function calculateNextBirthday() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+    const currentDay = now.getDate();
+    const birthDate = currentProfile.birthday;
+    const birthMonth = birthDate.split("-")[1];
+    const birthDay = birthDate.split("-")[2];
+
+    if (currentMonth <= birthMonth && currentDay < birthDate) {
+      const nextBirthday = new Date(
+        currentYear,
+        birthDate.split("-")[1] - 1,
+        birthDate.split("-")[2]
+      );
+      return nextBirthday;
+    } else {
+      const nextBirthday = new Date(
+        currentYear + 1,
+        birthDate.split("-")[1] - 1,
+        birthDate.split("-")[2]
+      );
+      return nextBirthday;
+    }
+  }
+
+  const nextBirthday = calculateNextBirthday();
+
+  const calculateDaysUntilBirthday = () => {
+    const now = new Date();
+    const difference = differenceInCalendarDays(nextBirthday, now);
+    if (difference === 365) {
+      return "heute";
+    } else {
+      return <span>in {difference} Tagen</span>;
+    }
+  };
 
   return (
     <>
       <Header />
       <StyledName>{currentProfile.name}</StyledName>
       <StyledBirthday>
-        <p>Geburtstag: {currentProfile.birthday}</p>
         <p>
-          wird {calculateAge()} in {calculateDaysUntilBirthday()} Tagen
+          Geburtstag:{" "}
+          {format(new Date(currentProfile.birthday), "dd'.'MM'.'yyyy")}
+        </p>
+        <p>
+          wird {calculateDaysUntilBirthday()} {calculateAge()}
         </p>
       </StyledBirthday>
       <StyledIdeas>

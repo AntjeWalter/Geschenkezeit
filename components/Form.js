@@ -1,6 +1,5 @@
 import { nanoid } from "nanoid";
 import styled from "styled-components";
-import format from "date-fns/format";
 
 export default function Form({ onCreateEntry }) {
   function handleSubmit(event) {
@@ -8,14 +7,6 @@ export default function Form({ onCreateEntry }) {
     const nameInput = event.target.name.value;
     const ideaInput = event.target.idea.value;
     const dateInput = event.target.date.value;
-
-    /*
-    //library used to format date to German dates:
-    const dateInput = format(
-      new Date(event.target.date.value),
-      "dd'.'MM'.'yyyy"
-    );
-    */
 
     const newEntry = {
       id: nanoid(),

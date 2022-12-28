@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
-import format from "date-fns/format";
 import Link from "next/link";
+import { format } from "date-fns";
 
 export default function BirthdayList({
   id,
@@ -18,13 +18,6 @@ export default function BirthdayList({
     const adaptedName = event.target.adaptedName.value;
     const adaptedIdeas = event.target.adaptedIdeas.value;
     const adaptedBirthday = event.target.adaptedBirthday.value;
-
-    /*
-    const adaptedBirthday = format(
-      new Date(event.target.adaptedBirthday.value),
-      "dd'.'MM'.'yyyy"
-    );
-    */
 
     const editedEntry = {
       id,
@@ -66,7 +59,9 @@ export default function BirthdayList({
           <StyledLink href={`/${id}`}>
             <div>{name}</div>
             <div>{ideas}</div>
-            <StyledTextAlign>{birthday}</StyledTextAlign>
+            <StyledTextAlign>
+              {format(new Date(birthday), "dd'.'MM'.'yyyy")}
+            </StyledTextAlign>
           </StyledLink>
           <StyledTextAlign>
             <StyledButton
@@ -125,7 +120,7 @@ const StyledEntry = styled.section`
   padding: 15px;
   border-radius: 5px;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -144,5 +139,5 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   margin: 3px;
-  font-size: 1rem;
+  font-size: 0.7rem;
 `;
