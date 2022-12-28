@@ -3,10 +3,12 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
+import useLocalStorageState from "use-local-storage-state";
 
-export default function ProfilePage({ entries }) {
+export default function ProfilePage() {
   const router = useRouter();
   const { id } = router.query;
+  const [entries] = useLocalStorageState("entries");
   const currentProfile = entries.find((entry) => entry.id === id);
 
   const calculateAge = () => {

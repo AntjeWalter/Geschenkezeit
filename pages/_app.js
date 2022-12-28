@@ -1,8 +1,10 @@
 import GlobalStyles from "../components/GlobalStyles";
-import { useLocalStorage } from "../helpers/hooks";
+import useLocalStorageState from "use-local-storage-state";
 
 function MyApp({ Component, pageProps }) {
-  const [entries, setEntries] = useLocalStorage("entries", []);
+  const [entries, setEntries] = useLocalStorageState("entries", {
+    defaultValue: [],
+  });
 
   function handleCreateEntry(newEntry) {
     setEntries([...entries, newEntry]);
