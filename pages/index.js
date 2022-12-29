@@ -3,34 +3,13 @@ import Header from "../components/Header";
 import Input from "../components/Form";
 import Footer from "../components/Footer";
 import styled from "styled-components";
-import { useLocalStorage } from "../helpers/hooks";
 
-export default function Home() {
-  const [entries, setEntries] = useLocalStorage("entries", []);
-
-  function handleCreateEntry(newEntry) {
-    setEntries([...entries, newEntry]);
-  }
-
-  function handleUpdateEntry(editedEntry) {
-    setEntries(
-      entries.map((entry) => {
-        if (entry.id === editedEntry.id) {
-          return editedEntry;
-        } else {
-          return entry;
-        }
-      })
-    );
-  }
-
-  function handleDelete(id) {
-    const updatedList = entries.filter((entry) => {
-      return entry.id !== id;
-    });
-    setEntries([...updatedList]);
-  }
-
+export default function Home({
+  entries,
+  onCreateEntry,
+  onUpdateEntry,
+  onDelete,
+}) {
   return (
     <>
       <Header />
@@ -43,19 +22,18 @@ export default function Home() {
             name={entry.name}
             birthday={entry.birthday}
             ideas={entry.ideas}
-            onUpdateEntry={handleUpdateEntry}
-            onDelete={handleDelete}
+            onUpdateEntry={onUpdateEntry}
+            onDelete={onDelete}
           />
         ))}
       </StyledSection>
-      <Input onCreateEntry={handleCreateEntry} />
+      <Input onCreateEntry={onCreateEntry} />
       <Footer />
     </>
   );
 }
 
 const StyledHeading = styled.h2`
-  font-family: AppleGothic;
   margin-left: 30px;
   margin-right: 30px;
   border-bottom: 2px solid #fe4a49;

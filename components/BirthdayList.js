@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
-import format from "date-fns/format";
+import Link from "next/link";
+import { format } from "date-fns";
 
 export default function BirthdayList({
   id,
@@ -16,10 +17,8 @@ export default function BirthdayList({
     event.preventDefault();
     const adaptedName = event.target.adaptedName.value;
     const adaptedIdeas = event.target.adaptedIdeas.value;
-    const adaptedBirthday = format(
-      new Date(event.target.adaptedBirthday.value),
-      "dd'.'MM'.'yyyy"
-    );
+    const adaptedBirthday = event.target.adaptedBirthday.value;
+
     const editedEntry = {
       id,
       name: adaptedName,
@@ -57,9 +56,13 @@ export default function BirthdayList({
         </StyledEditForm>
       ) : (
         <StyledEntry>
-          <div>{name}</div>
-          <div>{ideas}</div>
-          <StyledTextAlign>{birthday}</StyledTextAlign>
+          <StyledLink href={`/${id}`}>
+            <p>{name}</p>
+            <p>{ideas}</p>
+            <StyledTextAlign>
+              {format(new Date(birthday), "dd'.'MM'.'yyyy")}
+            </StyledTextAlign>
+          </StyledLink>
           <StyledTextAlign>
             <StyledButton
               type="button"
@@ -107,8 +110,7 @@ const StyledSubmitButton = styled.button`
 
 const StyledEntry = styled.section`
   display: grid;
-  grid-template-columns: 20% 40% 20% 20%;
-  font-family: AppleGothic;
+  grid-template-columns: 80% 20%;
   margin: auto;
   margin-bottom: 10px;
   width: 90%;
@@ -117,17 +119,28 @@ const StyledEntry = styled.section`
   padding: 15px;
   border-radius: 5px;
   align-items: center;
-  font-size: 0.9rem;
+`;
+
+const StyledLink = styled(Link)`
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  text-decoration: none;
+  color: black;
+  p {
+    align-self: center;
+  }
 `;
 
 const StyledTextAlign = styled.div`
   text-align: right;
   word-wrap: break-word;
+  font-size: 0.7rem;
+  align-self: center;
 `;
 
 const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   margin: 3px;
-  font-size: 1rem;
+  font-size: 0.7rem;
 `;
