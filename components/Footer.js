@@ -15,7 +15,6 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
-  font-family: AppleGothic;
   text-align: center;
   background-color: #2ab7ca;
   color: #f4f4f8;

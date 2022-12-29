@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
         margin-right: auto;
         background-color: #f4f4f8;
         height: 100vh;
+        font-family: PTSans;
     }
 
     * {
@@ -18,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     @font-face {
-        font-family: AppleGothic;
+        font-family: PTSans;
         src: url("/fonts/PTSans-Regular.ttf") format("truetype");
     }
 `;

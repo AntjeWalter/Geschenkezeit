@@ -20,20 +20,20 @@ export default function Form({ onCreateEntry }) {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledNameInput
+      <StyledInput
         type="text"
         placeholder="Name"
         name="name"
         aria-label="Name Input"
         required
-      ></StyledNameInput>
-      <StyledIdeaInput
+      ></StyledInput>
+      <StyledInput
         type="text"
         placeholder="Geschenkideen"
         name="idea"
         aria-label="Idea Input"
-      ></StyledIdeaInput>
-      <StyledDateInput
+      ></StyledInput>
+      <StyledInput
         type="date"
         placeholder="Geburtstag"
         name="date"
@@ -62,29 +62,13 @@ const StyledForm = styled.form`
   width: 100vw;
 `;
 
-const StyledNameInput = styled.input`
+const StyledInput = styled.input`
   border: none;
   background-color: #e6e6ea;
-  font-family: AppleGothic;
   text-align: center;
   flex-grow: 1;
   padding: 5px;
-`;
-
-const StyledIdeaInput = styled.input`
-  border: none;
-  background-color: #e6e6ea;
-  font-family: AppleGothic;
-  text-align: center;
-  flex-grow: 1;
-`;
-
-const StyledDateInput = styled.input`
-  border: none;
-  background-color: #e6e6ea;
-  font-family: AppleGothic;
-  text-align: center;
-  flex-grow: 1;
+  font-family: PTSans;
 `;
 
 const StyledSubmitButton = styled.button`
@@ -93,6 +77,6 @@ const StyledSubmitButton = styled.button`
   border-radius: 5px;
   padding: 10px;
   width: 100%;
-  font-family: AppleGothic;
   text-align: center;
+  font-family: PTSans;
 `;

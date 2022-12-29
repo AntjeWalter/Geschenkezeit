@@ -111,7 +111,6 @@ const StyledSubmitButton = styled.button`
 const StyledEntry = styled.section`
   display: grid;
   grid-template-columns: 80% 20%;
-  font-family: AppleGothic;
   margin: auto;
   margin-bottom: 10px;
   width: 90%;
