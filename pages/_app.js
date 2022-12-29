@@ -27,6 +27,18 @@ function MyApp({ Component, pageProps }) {
     setEntries([...updatedList]);
   }
 
+  function handleAddNotes(personNotes, id) {
+    setEntries(
+      entries.map((entry) => {
+        if (entry.id === id) {
+          return { ...entry, notes: personNotes };
+        } else {
+          return entry;
+        }
+      })
+    );
+  }
+
   return (
     <>
       <GlobalStyles />
@@ -35,6 +47,7 @@ function MyApp({ Component, pageProps }) {
         onCreateEntry={handleCreateEntry}
         onUpdateEntry={handleUpdateEntry}
         onDelete={handleDelete}
+        onAddNotes={handleAddNotes}
         entries={entries}
       />
     </>

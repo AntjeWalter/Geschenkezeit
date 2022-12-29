@@ -2,9 +2,10 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import MoreInfoForm from "../components/MoreInfoForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 
-export default function ProfilePage({ entries = [] }) {
+export default function ProfilePage({ entries = [], onAddNotes }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -78,8 +79,13 @@ export default function ProfilePage({ entries = [] }) {
           {age - 1 === 1 ? ` Jahr alt` : ` Jahre alt`}
         </p>
       </StyledBirthday>
+      <MoreInfoForm
+        onAddNotes={onAddNotes}
+        personId={id}
+        currentProfile={currentProfile}
+      />
       <StyledIdeas>
-        <h2>Ideen:</h2>
+        <h2>Geschenkideen:</h2>
         <p>{currentProfile.ideas}</p>
       </StyledIdeas>
       <Footer />

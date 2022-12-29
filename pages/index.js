@@ -3,12 +3,14 @@ import Header from "../components/Header";
 import Input from "../components/Form";
 import Footer from "../components/Footer";
 import styled from "styled-components";
+import { Fragment } from "react";
 
 export default function Home({
   entries,
   onCreateEntry,
   onUpdateEntry,
   onDelete,
+  onMoreInfo,
 }) {
   return (
     <>
@@ -16,15 +18,17 @@ export default function Home({
       <StyledHeading>Geburtstage</StyledHeading>
       <StyledSection>
         {entries.map((entry) => (
-          <BirthdayList
-            key={entry.id}
-            id={entry.id}
-            name={entry.name}
-            birthday={entry.birthday}
-            ideas={entry.ideas}
-            onUpdateEntry={onUpdateEntry}
-            onDelete={onDelete}
-          />
+          <Fragment key={entry.id}>
+            <BirthdayList
+              id={entry.id}
+              name={entry.name}
+              birthday={entry.birthday}
+              ideas={entry.ideas}
+              onUpdateEntry={onUpdateEntry}
+              onDelete={onDelete}
+              onMoreInfo={onMoreInfo}
+            />
+          </Fragment>
         ))}
       </StyledSection>
       <Input onCreateEntry={onCreateEntry} />
