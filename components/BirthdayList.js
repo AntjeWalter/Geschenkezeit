@@ -57,8 +57,8 @@ export default function BirthdayList({
       ) : (
         <StyledEntry>
           <StyledLink href={`/${id}`}>
-            <div>{name}</div>
-            <div>{ideas}</div>
+            <p>{name}</p>
+            <p>{ideas}</p>
             <StyledTextAlign>
               {format(new Date(birthday), "dd'.'MM'.'yyyy")}
             </StyledTextAlign>
@@ -119,7 +119,6 @@ const StyledEntry = styled.section`
   padding: 15px;
   border-radius: 5px;
   align-items: center;
-  font-size: 0.7rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -127,11 +126,16 @@ const StyledLink = styled(Link)`
   grid-template-columns: 30% 40% 30%;
   text-decoration: none;
   color: black;
+  p {
+    align-self: center;
+  }
 `;
 
 const StyledTextAlign = styled.div`
   text-align: right;
   word-wrap: break-word;
+  font-size: 0.7rem;
+  align-self: center;
 `;
 
 const StyledButton = styled.button`

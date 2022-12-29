@@ -21,7 +21,7 @@ export default function ProfilePage({ entries = [] }) {
   const birthDate = currentProfile.birthday;
   const now = new Date();
   const currentYear = now.getFullYear();
-  const currentMonth = now.getMonth();
+  const currentMonth = now.getMonth() + 1;
   const currentDay = now.getDate();
   const birthMonth = birthDate.split("-")[1];
   const birthDay = birthDate.split("-")[2];
@@ -61,14 +61,7 @@ export default function ProfilePage({ entries = [] }) {
     const age = differenceInYears(new Date(), new Date(birthDate)) + 1;
     return age;
   };
-  //   if (age === 1) {
-  //     return <span>1 Jahr alt</span>;
-  //   }
-  //   return <span>{age} Jahre alt</span>;
-  // };
-
-  console.log("now", now);
-  console.log("next", nextBirthday);
+  const age = calculateAge();
 
   return (
     <>
@@ -81,9 +74,8 @@ export default function ProfilePage({ entries = [] }) {
         </p>
         <p>
           {calculateDaysUntilBirthday()}{" "}
-          {currentMonth === birthMonth && currentDay === birthDay
-            ? calculateAge() - 1
-            : calculateAge()}
+          {currentMonth == birthMonth && currentDay == birthDay ? age - 1 : age}
+          {age - 1 === 1 ? ` Jahr alt` : ` Jahre alt`}
         </p>
       </StyledBirthday>
       <StyledIdeas>
