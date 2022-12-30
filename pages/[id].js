@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import MoreInfoForm from "../components/MoreInfoForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 
-export default function ProfilePage({ entries = [], onAddNotes }) {
+export default function ProfilePage({ entries = [], onUpdateEntryNotes }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -80,9 +80,14 @@ export default function ProfilePage({ entries = [], onAddNotes }) {
         </p>
       </StyledBirthday>
       <MoreInfoForm
-        onAddNotes={onAddNotes}
         personId={id}
         currentProfile={currentProfile}
+        id={currentProfile.id}
+        name={currentProfile.name}
+        birthday={currentProfile.birthday}
+        ideas={currentProfile.ideas}
+        notes={currentProfile.notes}
+        onUpdateEntryNotes={onUpdateEntryNotes}
       />
       <StyledIdeas>
         <h2>Geschenkideen:</h2>

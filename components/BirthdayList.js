@@ -8,6 +8,7 @@ export default function BirthdayList({
   name,
   birthday,
   ideas,
+  notes,
   onUpdateEntry,
   onDelete,
 }) {
@@ -24,6 +25,7 @@ export default function BirthdayList({
       name: adaptedName,
       birthday: adaptedBirthday,
       ideas: adaptedIdeas,
+      notes,
     };
     onUpdateEntry(editedEntry);
     setEdit(!edit);

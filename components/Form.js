@@ -58,8 +58,10 @@ const StyledForm = styled.form`
   margin-bottom: 25px;
   background-color: #f4f4f8;
   padding: 20px;
+  padding-top: 10px;
   max-width: 800px;
   width: 100vw;
+  box-shadow: 0px -4px 10px 5px #c4c4c4;
 `;
 
 const StyledInput = styled.input`

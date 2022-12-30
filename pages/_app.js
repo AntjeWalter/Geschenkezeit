@@ -27,11 +27,11 @@ function MyApp({ Component, pageProps }) {
     setEntries([...updatedList]);
   }
 
-  function handleAddNotes(personNotes, id) {
+  function handleUpdateEntryNotes(adaptedNotes, id) {
     setEntries(
       entries.map((entry) => {
         if (entry.id === id) {
-          return { ...entry, notes: personNotes };
+          return { ...entry, notes: adaptedNotes };
         } else {
           return entry;
         }
@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
         onCreateEntry={handleCreateEntry}
         onUpdateEntry={handleUpdateEntry}
         onDelete={handleDelete}
-        onAddNotes={handleAddNotes}
+        onUpdateEntryNotes={handleUpdateEntryNotes}
         entries={entries}
       />
     </>

@@ -11,6 +11,7 @@ export default function Home({
   onUpdateEntry,
   onDelete,
   onMoreInfo,
+  onUpdateEntryNotes,
 }) {
   return (
     <>
@@ -24,9 +25,11 @@ export default function Home({
               name={entry.name}
               birthday={entry.birthday}
               ideas={entry.ideas}
+              notes={entry.notes}
               onUpdateEntry={onUpdateEntry}
               onDelete={onDelete}
               onMoreInfo={onMoreInfo}
+              onUpdateEntryNotes={onUpdateEntryNotes}
             />
           </Fragment>
         ))}
@@ -44,5 +47,5 @@ const StyledHeading = styled.h2`
 `;
 
 const StyledSection = styled.section`
-  margin-bottom: 150px;
+  margin-bottom: 200px;
 `;
