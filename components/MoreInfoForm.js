@@ -5,7 +5,6 @@ export default function MoreInfoForm({
   personId,
   onUpdateEntryNotes,
   currentProfile,
-  notes,
 }) {
   const [edit, setEdit] = useState(false);
 
@@ -20,7 +19,7 @@ export default function MoreInfoForm({
     <>
       <StyledInfo>Notizen zur Person</StyledInfo>
       <StyledNotesWrapper>
-        {edit === true || !notes ? (
+        {edit === true || !currentProfile.notes ? (
           <StyledForm onSubmit={handleNotesSubmit}>
             <StyledTextarea
               name="adaptedNotes"
@@ -49,28 +48,28 @@ export default function MoreInfoForm({
 }
 
 const StyledInfo = styled.h3`
-  margin-top: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
   border-bottom: 1px solid black;
 `;
 
 const StyledNotesWrapper = styled.div`
   display: flex;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin: 1.5rem;
+  margin-top: 1rem;
   justify-content: space-between;
 `;
 
 const StyledNotes = styled.p`
-  margin-right: 30px;
-  margin-top: 5px;
+  margin-right: 1.5rem;
+  margin-top: 0.3rem;
   width: 70%;
 `;
 
 const StyledButton = styled.button`
-  height: 30px;
+  height: 1.8rem;
+  width: 1.8rem;
   align-self: center;
   border: none;
   background-color: #fed766;
@@ -86,4 +85,7 @@ const StyledForm = styled.form`
 const StyledTextarea = styled.textarea`
   align-self: left;
   width: 70vw;
+  @media (min-width: 800px) {
+    width: 700px;
+  }
 `;

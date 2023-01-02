@@ -82,11 +82,6 @@ export default function ProfilePage({ entries = [], onUpdateEntryNotes }) {
       <MoreInfoForm
         personId={id}
         currentProfile={currentProfile}
-        id={currentProfile.id}
-        name={currentProfile.name}
-        birthday={currentProfile.birthday}
-        ideas={currentProfile.ideas}
-        notes={currentProfile.notes}
         onUpdateEntryNotes={onUpdateEntryNotes}
       />
       <StyledIdeas>
@@ -99,16 +94,16 @@ export default function ProfilePage({ entries = [], onUpdateEntryNotes }) {
 }
 
 const StyledName = styled.h1`
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   border-bottom: 2px solid #fe4a49;
 `;
 
 const StyledBirthday = styled.section`
-  margin-left: 30px;
+  margin-left: 1.5rem;
 `;
 
 const StyledIdeas = styled.section`
-  margin-top: 50px;
-  margin-left: 30px;
+  margin-top: 2.5rem;
+  margin-left: 1.5rem;
 `;
