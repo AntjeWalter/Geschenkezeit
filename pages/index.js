@@ -1,6 +1,6 @@
-import BirthdayList from "../components/BirthdayList";
+import BirthdayList from "../components/BirthdayListPage/BirthdayList";
 import Header from "../components/Header";
-import Input from "../components/Form";
+import Input from "../components/BirthdayListPage/Form";
 import Footer from "../components/Footer";
 import styled from "styled-components";
 import { Fragment } from "react";
