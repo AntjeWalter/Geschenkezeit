@@ -81,4 +81,7 @@ const StyledSubmitButton = styled.button`
   width: 100%;
   text-align: center;
   font-family: PTSans;
+  @media (min-height: 720px) {
+    margin-bottom: 20px;
+  }
 `;
