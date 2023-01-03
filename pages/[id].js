@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import MoreInfoForm from "../components/MoreInfoForm";
+import MoreInfoForm from "../components/ProfilePage/MoreInfoForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 
 export default function ProfilePage({ entries = [], onUpdateEntryNotes }) {
