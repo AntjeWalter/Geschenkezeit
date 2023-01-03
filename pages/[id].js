@@ -3,9 +3,14 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MoreInfoForm from "../components/ProfilePage/MoreInfoForm";
+import MoreIdeasForm from "../components/ProfilePage/MoreIdeasForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 
-export default function ProfilePage({ entries = [], onUpdateEntryNotes }) {
+export default function ProfilePage({
+  entries = [],
+  onUpdateEntryNotes,
+  onUpdateIdeas,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -84,10 +89,11 @@ export default function ProfilePage({ entries = [], onUpdateEntryNotes }) {
         currentProfile={currentProfile}
         onUpdateEntryNotes={onUpdateEntryNotes}
       />
-      <StyledIdeas>
-        <h2>Geschenkideen:</h2>
-        <p>{currentProfile.ideas}</p>
-      </StyledIdeas>
+      <MoreIdeasForm
+        currentProfile={currentProfile}
+        personId={id}
+        onUpdateIdeas={onUpdateIdeas}
+      />
       <Footer />
     </>
   );
@@ -100,10 +106,5 @@ const StyledName = styled.h1`
 `;
 
 const StyledBirthday = styled.section`
-  margin-left: 1.5rem;
-`;
-
-const StyledIdeas = styled.section`
-  margin-top: 2.5rem;
   margin-left: 1.5rem;
 `;

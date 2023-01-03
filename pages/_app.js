@@ -1,3 +1,4 @@
+import { NEXT_CLIENT_SSR_ENTRY_SUFFIX } from "next/dist/shared/lib/constants";
 import GlobalStyles from "../components/GlobalStyles";
 import { useLocalStorage } from "../helpers/hooks";
 
@@ -39,6 +40,18 @@ function MyApp({ Component, pageProps }) {
     );
   }
 
+  function handleUpdateIdeas(adaptedIdeas, id) {
+    setEntries(
+      entries.map((entry) => {
+        if (entry.id === id) {
+          return { ...entry, ideas: adaptedIdeas };
+        } else {
+          return entry;
+        }
+      })
+    );
+  }
+
   return (
     <>
       <GlobalStyles />
@@ -48,6 +61,7 @@ function MyApp({ Component, pageProps }) {
         onUpdateEntry={handleUpdateEntry}
         onDelete={handleDelete}
         onUpdateEntryNotes={handleUpdateEntryNotes}
+        onUpdateIdeas={handleUpdateIdeas}
         entries={entries}
       />
     </>
