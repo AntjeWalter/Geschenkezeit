@@ -136,7 +136,7 @@ const StyledLink = styled(Link)`
 const StyledTextAlign = styled.div`
   text-align: right;
   word-wrap: break-word;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   align-self: center;
 `;
 
@@ -144,5 +144,5 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   margin: 3px;
-  font-size: 0.7rem;
+  font-size: 1.25rem;
 `;

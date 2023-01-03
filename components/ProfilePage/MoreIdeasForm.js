@@ -43,9 +43,8 @@ export default function MoreIdeasForm({
 }
 
 const StyledInfo = styled.h3`
-  margin: 1.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  margin: 3rem 1.5rem 1rem 1.5rem;
+  font-size: 1.25rem;
   border-bottom: 1px solid black;
 `;
 
@@ -58,6 +57,7 @@ const StyledForm = styled.form`
 const StyledTextArea = styled.textarea`
   align-self: left;
   width: 70vw;
+  height: 5em;
   @media (min-width: 800px) {
     width: 700px;
   }
