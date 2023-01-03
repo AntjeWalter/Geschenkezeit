@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
         background-color: #f4f4f8;
         height: 100vh;
         font-family: PTSans;
+        overflow: scroll;
     }
 
     * {

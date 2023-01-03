@@ -57,9 +57,11 @@ const StyledForm = styled.form`
   gap: 10px;
   margin-bottom: 25px;
   background-color: #f4f4f8;
-  padding: 20px;
+  padding: 1.2rem;
+  padding-top: 0.5rem;
   max-width: 800px;
   width: 100vw;
+  box-shadow: 0px -4px 10px 5px #c4c4c4;
 `;
 
 const StyledInput = styled.input`
@@ -67,7 +69,7 @@ const StyledInput = styled.input`
   background-color: #e6e6ea;
   text-align: center;
   flex-grow: 1;
-  padding: 5px;
+  padding: 0.2rem;
   font-family: PTSans;
 `;
 
@@ -79,4 +81,7 @@ const StyledSubmitButton = styled.button`
   width: 100%;
   text-align: center;
   font-family: PTSans;
+  @media (min-height: 720px) {
+    margin-bottom: 20px;
+  }
 `;
