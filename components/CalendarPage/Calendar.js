@@ -1,42 +1,27 @@
 import React from "react";
-import dayjs from "dayjs";
-import TextField from "@mui/material/TextField";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
-import { Badge } from "@mui/material";
-import { PickersDay } from "@mui/x-date-pickers";
-import { useState } from "react";
+import Calendar from "react-calendar";
 
-export default function Calendar() {
-  const [value, setValue] = useState(dayjs("2022-04-07"));
-  const [highlightedDays, setHighlightedDays] = useState([1, 2, 15]);
+export default function CalendarFromReact({ entries }) {
+  const tileContent = ({ date, view }) => {
+    if (view === "month") {
+      const selectedDay = date.getDate();
+      const selectedMonth = date.getMonth() + 1;
+
+      const hasBirthday = entries.find((entry) => {
+        const birthDay = entry.birthday.split("-")[2];
+        const birthMonth = entry.birthday.split("-")[1];
+        return selectedDay == birthDay && selectedMonth == birthMonth;
+      });
+
+      if (hasBirthday) {
+        return <p>🎁</p>;
+      }
+    }
+  };
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <StaticDatePicker
-        orientation="portrait"
-        openTo="day"
-        value={value}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-        renderDay={(day, _value, DayComponentProps) => {
-          const isSelected =
-            !DayComponentProps.outsideCurrentMonth &&
-            highlightedDays.indexOf(day.date()) >= 0;
-
-          return (
-            <Badge
-              key={day.toString()}
-              overlap="circular"
-              badgeContent={isSelected ? "🎁" : undefined}
-            >
-              <PickersDay {...DayComponentProps} />
-            </Badge>
-          );
-        }}
-      />
-    </LocalizationProvider>
+    <>
+      <Calendar locale="de-DE" tileContent={tileContent} />
+    </>
   );
 }
