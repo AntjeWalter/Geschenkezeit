@@ -1,9 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
 
 export default function CalendarFromReact({ entries }) {
+  const [date, setDate] = useState(new Date());
+  const [birthdays, setBirthdays] = useState([]);
+
   const tileContent = ({ date, view }) => {
     if (view === "month") {
       const selectedDay = date.getDate();
@@ -21,10 +25,35 @@ export default function CalendarFromReact({ entries }) {
     }
   };
 
+  function handleClickDay(date, event, entries) {
+    setDate(date);
+
+    const selectedDay = date.getDate();
+    const selectedMonth = date.getMonth() + 1;
+
+    const birthdates = entries
+      .filter((entry) => {
+        const birthDay = entry.birthday.split("-")[2];
+        const birthMonth = entry.birthday.split("-")[1];
+        return birthDay == selectedDay && birthMonth == selectedMonth;
+      })
+      .map((entry, index) => (index ? ", " : "") + entry.name);
+    setBirthdays(birthdates);
+  }
+
   return (
-    <StyledCalendarContainer>
-      <Calendar locale="de-DE" tileContent={tileContent} />
-    </StyledCalendarContainer>
+    <>
+      <StyledCalendarContainer>
+        <Calendar
+          locale="de-DE"
+          tileContent={tileContent}
+          value={date}
+          onClickDay={(value, event) => handleClickDay(value, event, entries)}
+        />
+      </StyledCalendarContainer>
+      <StyledHeadline>Geburtstage an diesem Tag:</StyledHeadline>
+      <StyledNames>{birthdays}</StyledNames>
+    </>
   );
 }
 
@@ -34,6 +63,12 @@ const StyledCalendarContainer = styled.section`
     margin: 2px;
     background-color: #e6e6ea;
     border-radius: 3px;
+  }
+  .react-calendar {
+    border: none;
+    border-radius: 4px;
+    padding: 3px;
+    box-shadow: 2px 2px 15px 2px #c4c4c4;
   }
   .react-calendar__month-view__days {
     display: grid !important;
@@ -50,13 +85,21 @@ const StyledCalendarContainer = styled.section`
   .react-calendar__century-view__decades {
     display: grid !important;
     grid-template-columns: 20% 20% 20% 20% 20%;
-
     &.react-calendar__year-view__months {
       grid-template-columns: 33.3% 33.3% 33.3%;
     }
-
     .react-calendar__tile {
       max-width: initial !important;
     }
   }
+`;
+
+const StyledHeadline = styled.h2`
+  font-size: 1.2rem;
+  margin-left: 2rem;
+`;
+
+const StyledNames = styled.p`
+  font-size: 1.1rem;
+  margin-left: 2rem;
 `;
