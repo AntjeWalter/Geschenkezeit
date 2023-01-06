@@ -109,7 +109,7 @@ const StyledCalendarContainer = styled.section`
   .MuiBadge-badge {
     position: absolute;
     top: -10px;
-    right: -8px;
+    right: -6px;
   }
 `;
 
