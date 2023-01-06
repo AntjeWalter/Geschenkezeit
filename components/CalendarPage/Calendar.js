@@ -106,7 +106,7 @@ const StyledCalendarContainer = styled.section`
       max-width: initial !important;
     }
   }
-  .css-144dnr3-MuiBadge-badge {
+  .MuiBadge-badge {
     position: absolute;
     top: -10px;
     right: -8px;
