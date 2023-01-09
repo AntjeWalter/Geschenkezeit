@@ -77,6 +77,7 @@ const StyledCalendarContainer = styled.section`
     border-radius: 4px;
     padding: 3px;
     box-shadow: 2px 2px 15px 2px #c4c4c4;
+    margin: auto;
   }
   .react-calendar__month-view__days {
     display: grid !important;
