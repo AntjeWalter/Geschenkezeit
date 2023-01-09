@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
-import { format } from "date-fns";
+import format from "date-fns/format";
 
 export default function BirthdayList({
   id,
