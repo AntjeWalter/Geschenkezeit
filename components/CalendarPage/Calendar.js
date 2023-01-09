@@ -4,6 +4,8 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
 import { Badge } from "@mui/material";
+import { Fragment } from "react";
+import Link from "next/link";
 
 export default function CalendarFromReact({ entries }) {
   const [date, setDate] = useState(new Date());
@@ -36,13 +38,12 @@ export default function CalendarFromReact({ entries }) {
     const selectedMonth = date.getMonth() + 1;
 
     // searches for every entry that has the birthday on the same day as selected and puts them together with a , in between
-    const birthdates = entries
-      .filter((entry) => {
-        const birthDay = entry.birthday.split("-")[2];
-        const birthMonth = entry.birthday.split("-")[1];
-        return birthDay == selectedDay && birthMonth == selectedMonth;
-      })
-      .map((entry, index) => (index ? ", " : "") + entry.name);
+    const birthdates = entries.filter((entry) => {
+      const birthDay = entry.birthday.split("-")[2];
+      const birthMonth = entry.birthday.split("-")[1];
+      return birthDay == selectedDay && birthMonth == selectedMonth;
+    });
+    //.map((entry, index) => (index ? ", " : "") + entry.name);
     setBirthdays(birthdates);
   }
 
@@ -57,10 +58,34 @@ export default function CalendarFromReact({ entries }) {
         />
       </StyledCalendarContainer>
       <StyledHeadline>Geburtstage an diesem Tag:</StyledHeadline>
-      <StyledNames>{birthdays}</StyledNames>
+      <StyledNameContainer>
+        {birthdays.map((birthday) => (
+          <Fragment key={birthday.id}>
+            <StyledLink href={`/${birthday.id}`}>{birthday.name}</StyledLink>
+          </Fragment>
+        ))}
+      </StyledNameContainer>
     </>
   );
 }
+
+const StyledNameContainer = styled.section`
+  margin-bottom: 4rem;
+`;
+
+const StyledLink = styled(Link)`
+  margin: 0.5rem 2rem 0.5rem 2rem;
+  display: block;
+  background-color: #e6e6ea;
+  border-radius: 5px;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: black;
+
+  p {
+    align-self: center;
+  }
+`;
 
 // styled components are not possible with react-calendar and MUI Badges, therefore it's styled with the classes from the DevTools here
 const StyledCalendarContainer = styled.section`
