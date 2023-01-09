@@ -44,7 +44,6 @@ export default function CalendarFromReact({ entries }) {
       const birthMonth = entry.birthday.split("-")[1];
       return birthDay == selectedDay && birthMonth == selectedMonth;
     });
-    //.map((entry, index) => (index ? ", " : "") + entry.name);
     setBirthdays(birthdates);
   }
 
