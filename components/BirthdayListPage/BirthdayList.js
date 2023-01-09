@@ -62,7 +62,7 @@ export default function BirthdayList({
             <p>{name}</p>
             <p>{ideas}</p>
             <StyledTextAlign>
-              {format(new Date(birthday), "dd'.'MM'.'yyyy")}
+              {format(new Date(birthday), "dd.MM.yyyy")}
             </StyledTextAlign>
           </StyledLink>
           <StyledTextAlign>
