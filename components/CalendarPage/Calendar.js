@@ -38,7 +38,7 @@ export default function CalendarFromReact({ entries }) {
     const selectedDay = date.getDate();
     const selectedMonth = date.getMonth() + 1;
 
-    // searches for every entry that has the birthday on the same day as selected and puts them together with a , in between
+    // searches for every entry that has the birthday on the same day as selected
     const birthdates = entries.filter((entry) => {
       const birthDay = entry.birthday.split("-")[2];
       const birthMonth = entry.birthday.split("-")[1];
