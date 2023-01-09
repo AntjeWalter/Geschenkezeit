@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Badge } from "@mui/material";
 import { Fragment } from "react";
 import Link from "next/link";
+import { BiChevronRight } from "react-icons/bi";
 
 export default function CalendarFromReact({ entries }) {
   const [date, setDate] = useState(new Date());
@@ -61,7 +62,10 @@ export default function CalendarFromReact({ entries }) {
       <StyledNameContainer>
         {birthdays.map((birthday) => (
           <Fragment key={birthday.id}>
-            <StyledLink href={`/${birthday.id}`}>{birthday.name}</StyledLink>
+            <StyledLink href={`/${birthday.id}`}>
+              {birthday.name}
+              <BiChevronRight size="3.5vh" color="fed766" />
+            </StyledLink>
           </Fragment>
         ))}
       </StyledNameContainer>
@@ -81,10 +85,8 @@ const StyledLink = styled(Link)`
   padding: 0.5rem;
   text-decoration: none;
   color: black;
-
-  p {
-    align-self: center;
-  }
+  display: flex;
+  justify-content: space-between;
 `;
 
 // styled components are not possible with react-calendar and MUI Badges, therefore it's styled with the classes from the DevTools here
