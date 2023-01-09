@@ -75,8 +75,7 @@ export default function ProfilePage({
       <StyledName>{currentProfile.name}</StyledName>
       <StyledBirthday>
         <p>
-          Geburtstag:{" "}
-          {format(new Date(currentProfile.birthday), "dd'.'MM'.'yyyy")}
+          Geburtstag: {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
         </p>
         <p>
           {calculateDaysUntilBirthday()}{" "}
