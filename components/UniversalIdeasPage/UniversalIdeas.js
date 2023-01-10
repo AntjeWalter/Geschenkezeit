@@ -22,14 +22,14 @@ export default function UniversalIdeas({
   return (
     <>
       {edit === true ? (
-        <form onSubmit={handleSubmit}>
-          <input
+        <StyledForm onSubmit={handleSubmit}>
+          <StyledEditInput
             type="text"
             name="adaptedIdea"
             defaultValue={idea.idea}
-          ></input>
-          <button type="submit">OK</button>
-        </form>
+          ></StyledEditInput>
+          <StyledEditButton type="submit">OK</StyledEditButton>
+        </StyledForm>
       ) : (
         <StyledIdeaList>
           <StyledIdea>{idea.idea}</StyledIdea>
@@ -52,6 +52,28 @@ export default function UniversalIdeas({
     </>
   );
 }
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 5px;
+  margin-right: 25px;
+  gap: 5px;
+`;
+
+const StyledEditInput = styled.input`
+  border: none;
+  padding: 5px;
+  flex-grow: 1;
+`;
+
+const StyledEditButton = styled.button`
+  border: none;
+  border-radius: 5px;
+  background-color: #fed766;
+  padding: 5px;
+`;
 
 const StyledIdeaList = styled.section`
   display: grid;
