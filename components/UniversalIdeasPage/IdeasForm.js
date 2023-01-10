@@ -1,9 +1,11 @@
+import { nanoid } from "nanoid";
 import styled from "styled-components";
 
 export default function IdeasForm({ onCreateIdea }) {
   function handleSubmit(event) {
     event.preventDefault();
-    const newIdea = event.target.ideas.value;
+    const idea = event.target.ideas.value;
+    const newIdea = { idea, id: nanoid() };
     onCreateIdea(newIdea);
     event.target.reset();
   }
