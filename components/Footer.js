@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { BiHomeHeart, BiCalendarHeart } from "react-icons/bi";
+import { BiHomeHeart, BiCalendarHeart, BiBookHeart } from "react-icons/bi";
 
 export default function Footer() {
   return (
@@ -11,6 +11,9 @@ export default function Footer() {
         </Link>
         <Link href="/calendar">
           <BiCalendarHeart size="5vh" color="white" />
+        </Link>
+        <Link href="/universal-ideas">
+          <BiBookHeart size="5vh" color="white" />
         </Link>
       </StyledFooter>
     </div>

@@ -1,6 +1,6 @@
 import BirthdayList from "../components/BirthdayListPage/BirthdayList";
 import Header from "../components/Header";
-import Input from "../components/BirthdayListPage/Form";
+import Form from "../components/BirthdayListPage/Form";
 import Footer from "../components/Footer";
 import styled from "styled-components";
 import { Fragment } from "react";
@@ -34,7 +34,7 @@ export default function Home({
           </Fragment>
         ))}
       </StyledSection>
-      <Input onCreateEntry={onCreateEntry} />
+      <Form onCreateEntry={onCreateEntry} />
       <Footer />
     </>
   );
