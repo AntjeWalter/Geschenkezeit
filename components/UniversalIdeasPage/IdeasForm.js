@@ -20,7 +20,7 @@ export default function IdeasForm({ onCreateIdea }) {
         required
       ></StyledInput>
       <StyledButton type="submit" aria-label="Submit Input">
-        +
+        OK
       </StyledButton>
     </StyledForm>
   );

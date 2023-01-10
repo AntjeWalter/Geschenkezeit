@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { nanoid } from "nanoid";
-import IdeasForm from "./IdeasForm";
 
 export default function UniversalIdeas({
   idea,
@@ -64,15 +62,17 @@ const StyledForm = styled.form`
 
 const StyledEditInput = styled.input`
   border: none;
-  padding: 5px;
+  padding: 10px;
   flex-grow: 1;
+  font-family: PTSans;
 `;
 
 const StyledEditButton = styled.button`
   border: none;
   border-radius: 5px;
   background-color: #fed766;
-  padding: 5px;
+  padding: 10px;
+  font-family: PTSans;
 `;
 
 const StyledIdeaList = styled.section`
