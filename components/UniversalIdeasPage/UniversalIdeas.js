@@ -54,9 +54,8 @@ export default function UniversalIdeas({
 const StyledForm = styled.form`
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
+  margin: 20px 25px 20px 20px;
   padding: 5px;
-  margin-right: 25px;
   gap: 5px;
 `;
 
@@ -77,9 +76,8 @@ const StyledEditButton = styled.button`
 
 const StyledIdeaList = styled.section`
   display: grid;
-  grid-template-columns: 60% 20% 20%;
-  margin: auto;
-  margin-bottom: 10px;
+  grid-template-columns: 70% 15% 15%;
+  margin: auto auto 10px auto;
   width: 90%;
   word-wrap: break-word;
   background-color: #e6e6ea;
