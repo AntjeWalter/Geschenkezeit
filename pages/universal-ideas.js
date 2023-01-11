@@ -37,16 +37,19 @@ export default function UniversalIdeasPage() {
     <>
       <Header />
       <StyledHeading>Allgemeine Geschenkideen</StyledHeading>
-      {ideas.map((idea) => (
-        <Fragment key={idea.id}>
-          <UniversalIdeas
-            idea={idea}
-            onUpdateIdea={handleUpdateIdea}
-            onDeleteIdea={handleDeleteIdea}
-            id={idea.id}
-          />
-        </Fragment>
-      ))}
+      <StyledIdeaList>
+        {ideas.map((idea) => (
+          <Fragment key={idea.id}>
+            <UniversalIdeas
+              idea={idea}
+              onUpdateIdea={handleUpdateIdea}
+              onDeleteIdea={handleDeleteIdea}
+              id={idea.id}
+            />
+          </Fragment>
+        ))}
+      </StyledIdeaList>
+
       <IdeasForm onCreateIdea={handleCreateIdea} />
       <Footer />
     </>
@@ -57,4 +60,8 @@ const StyledHeading = styled.h2`
   margin-left: 30px;
   margin-right: 30px;
   border-bottom: 2px solid #fe4a49;
+`;
+
+const StyledIdeaList = styled.section`
+  margin-bottom: 130px;
 `;

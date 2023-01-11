@@ -29,7 +29,7 @@ export default function UniversalIdeas({
           <StyledEditButton type="submit">OK</StyledEditButton>
         </StyledForm>
       ) : (
-        <StyledIdeaList>
+        <StyledIdeaContainer>
           <StyledIdea>{idea.idea}</StyledIdea>
           <StyledButton
             type="button"
@@ -45,7 +45,7 @@ export default function UniversalIdeas({
           >
             🗑
           </StyledButton>
-        </StyledIdeaList>
+        </StyledIdeaContainer>
       )}
     </>
   );
@@ -74,7 +74,7 @@ const StyledEditButton = styled.button`
   font-family: PTSans;
 `;
 
-const StyledIdeaList = styled.section`
+const StyledIdeaContainer = styled.div`
   display: grid;
   grid-template-columns: 70% 15% 15%;
   margin: auto auto 10px auto;
