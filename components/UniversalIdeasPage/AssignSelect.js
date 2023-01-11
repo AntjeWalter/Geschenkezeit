@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export default function AssignSelect({ entries, idea, onIdeaAssign }) {
   function handleChange(event) {
     event.preventDefault();
@@ -7,11 +9,20 @@ export default function AssignSelect({ entries, idea, onIdeaAssign }) {
   }
 
   return (
-    <select onChange={handleChange}>
-      <option value="selected">---Idee zuweisen---</option>
+    <StyledSelect onChange={handleChange}>
+      <option value="selected">--Wem könnte das gefallen?--</option>
       {entries.map((entry) => (
         <option key={entry.id}>{entry.name}</option>
       ))}
-    </select>
+    </StyledSelect>
   );
 }
+
+const StyledSelect = styled.select`
+  background-color: #f4f4f8;
+  color: gray;
+  margin: 0 1rem 0 1rem;
+  padding: 0.2rem;
+  font-family: PTSans;
+  border-radius: 3px;
+`;

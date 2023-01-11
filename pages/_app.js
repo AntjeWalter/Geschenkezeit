@@ -53,21 +53,21 @@ function MyApp({ Component, pageProps }) {
   }
 
   function handleIdeaAssign(assignedName, assignedIdea) {
-    setEntries(
-      entries.map((entry) => {
-        const newIdeaKey = !entry.ideas
-          ? assignedIdea
-          : entry.ideas + ", " + assignedIdea;
-        if (assignedName === entry.name) {
-          return { ...entry, ideas: newIdeaKey };
-        } else {
-          return entry;
-        }
-      })
-    );
+    if (confirm("Möchtest du dieser Person diese Idee zuweisen?")) {
+      setEntries(
+        entries.map((entry) => {
+          const newIdeaKey = !entry.ideas
+            ? assignedIdea
+            : entry.ideas + ", " + assignedIdea;
+          if (assignedName === entry.name) {
+            return { ...entry, ideas: newIdeaKey };
+          } else {
+            return entry;
+          }
+        })
+      );
+    }
   }
-
-  console.log("entries", entries);
 
   return (
     <>
