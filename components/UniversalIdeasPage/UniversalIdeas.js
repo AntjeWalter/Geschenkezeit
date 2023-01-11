@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { useState } from "react";
+import AssignSelect from "./AssignSelect";
 
 export default function UniversalIdeas({
   idea,
   id,
   onUpdateIdea,
   onDeleteIdea,
+  entries,
+  onIdeaAssign,
 }) {
   const [edit, setEdit] = useState(false);
 
@@ -30,7 +33,12 @@ export default function UniversalIdeas({
         </StyledForm>
       ) : (
         <StyledIdeaContainer>
-          <StyledIdea>{idea.idea}</StyledIdea>
+          <AssignSelect
+            entries={entries}
+            onIdeaAssign={onIdeaAssign}
+            idea={idea}
+          />
+          <StyledIdea>{idea}</StyledIdea>
           <StyledButton
             type="button"
             aria-label="Edit-Button"
@@ -76,7 +84,7 @@ const StyledEditButton = styled.button`
 
 const StyledIdeaContainer = styled.div`
   display: grid;
-  grid-template-columns: 70% 15% 15%;
+  grid-template-columns: 10% 60% 15% 15%;
   margin: auto auto 10px auto;
   width: 90%;
   word-wrap: break-word;

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { useLocalStorage } from "../helpers/hooks";
 import { Fragment } from "react";
 
-export default function UniversalIdeasPage() {
+export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
   const [ideas, setIdeas] = useLocalStorage("ideas", []);
 
   function handleCreateIdea(newIdea) {
@@ -32,7 +32,6 @@ export default function UniversalIdeasPage() {
     setIdeas([...updatedIdea]);
   }
 
-  console.log("ideas", ideas);
   return (
     <>
       <Header />
@@ -41,10 +40,12 @@ export default function UniversalIdeasPage() {
         {ideas.map((idea) => (
           <Fragment key={idea.id}>
             <UniversalIdeas
-              idea={idea}
+              idea={idea.idea}
               onUpdateIdea={handleUpdateIdea}
               onDeleteIdea={handleDeleteIdea}
+              onIdeaAssign={onIdeaAssign}
               id={idea.id}
+              entries={entries}
             />
           </Fragment>
         ))}
