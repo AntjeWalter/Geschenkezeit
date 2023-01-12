@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }) {
   }
 
   function handleIdeaAssign(assignedName, assignedIdea) {
-    if (confirm("Möchtest du dieser Person diese Idee zuweisen?")) {
+    if (confirm(`Möchtest du ${assignedName} diese Idee zuweisen?`)) {
       setEntries(
         entries.map((entry) => {
           const newIdeaKey = !entry.ideas

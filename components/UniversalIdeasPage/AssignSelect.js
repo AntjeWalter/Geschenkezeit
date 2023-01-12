@@ -6,6 +6,7 @@ export default function AssignSelect({ entries, idea, onIdeaAssign }) {
     const assignedName = event.target.value;
     const assignedIdea = idea;
     onIdeaAssign(assignedName, assignedIdea);
+    event.target.value = "selected";
   }
 
   return (
