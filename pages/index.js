@@ -2,6 +2,7 @@ import BirthdayList from "../components/BirthdayListPage/BirthdayList";
 import Header from "../components/Header";
 import Form from "../components/BirthdayListPage/Form";
 import Footer from "../components/Footer";
+import Sorting from "../components/BirthdayListPage/Sorting";
 import styled from "styled-components";
 import { Fragment } from "react";
 
@@ -12,11 +13,15 @@ export default function Home({
   onDelete,
   onMoreInfo,
   onUpdateEntryNotes,
+  onSorting,
 }) {
   return (
     <>
       <Header />
-      <StyledHeading>Geburtstage</StyledHeading>
+      <StyledHeadingContainer>
+        <StyledHeading>Geburtstage</StyledHeading>
+        <Sorting onSorting={onSorting} />
+      </StyledHeadingContainer>
       <StyledSection>
         {entries.map((entry) => (
           <Fragment key={entry.id}>
@@ -40,12 +45,18 @@ export default function Home({
   );
 }
 
-const StyledHeading = styled.h2`
-  margin-left: 30px;
-  margin-right: 30px;
+const StyledHeadingContainer = styled.section`
+  display: flex;
+  justify-content: space-between;
   border-bottom: 2px solid #fe4a49;
+  margin: 0.5rem 2rem 0 2rem;
+`;
+
+const StyledHeading = styled.h2`
+  margin-bottom: 0px;
 `;
 
 const StyledSection = styled.section`
+  margin-top: 20px;
   margin-bottom: 200px;
 `;
