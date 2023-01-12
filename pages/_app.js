@@ -1,4 +1,3 @@
-import { NEXT_CLIENT_SSR_ENTRY_SUFFIX } from "next/dist/shared/lib/constants";
 import GlobalStyles from "../components/GlobalStyles";
 import { useLocalStorage } from "../helpers/hooks";
 
