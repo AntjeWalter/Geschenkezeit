@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { useState } from "react";
+import AssignSelect from "./AssignSelect";
 
 export default function UniversalIdeas({
   idea,
   id,
   onUpdateIdea,
   onDeleteIdea,
+  entries,
+  onIdeaAssign,
 }) {
   const [edit, setEdit] = useState(false);
 
@@ -24,13 +27,13 @@ export default function UniversalIdeas({
           <StyledEditInput
             type="text"
             name="adaptedIdea"
-            defaultValue={idea.idea}
+            defaultValue={idea}
           ></StyledEditInput>
           <StyledEditButton type="submit">OK</StyledEditButton>
         </StyledForm>
       ) : (
         <StyledIdeaContainer>
-          <StyledIdea>{idea.idea}</StyledIdea>
+          <StyledIdea>{idea}</StyledIdea>
           <StyledButton
             type="button"
             aria-label="Edit-Button"
@@ -38,6 +41,11 @@ export default function UniversalIdeas({
           >
             ✍🏼
           </StyledButton>
+          <AssignSelect
+            entries={entries}
+            onIdeaAssign={onIdeaAssign}
+            idea={idea}
+          />
           <StyledButton
             type="button"
             aria-label="Delete-Button"
@@ -76,12 +84,12 @@ const StyledEditButton = styled.button`
 
 const StyledIdeaContainer = styled.div`
   display: grid;
-  grid-template-columns: 70% 15% 15%;
+  grid-template-columns: 80% 20%;
   margin: auto auto 10px auto;
   width: 90%;
   word-wrap: break-word;
   background-color: #e6e6ea;
-  padding: 15px;
+  padding: 10px 5px 10px 5px;
   border-radius: 5px;
   align-items: center;
 `;
@@ -101,4 +109,5 @@ const StyledButton = styled.button`
   border-radius: 5px;
   margin: 3px;
   font-size: 1.25rem;
+  justify-self: end;
 `;
