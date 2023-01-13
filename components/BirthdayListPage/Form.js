@@ -60,7 +60,7 @@ export default function Form({ onCreateEntry }) {
               setFormActive(false);
             }}
           >
-            <BiXCircle size="20px" />
+            <BiXCircle size="20px" color="white" />
           </StyledCancelButton>
         </StyledForm>
       ) : (
@@ -85,9 +85,9 @@ const StyledForm = styled.form`
   position: fixed;
   display: grid;
   grid-template-areas:
-    "a a b b"
-    "c c c c"
-    "d d d e";
+    "name name date date"
+    "idea idea idea idea"
+    "submit submit submit cancel";
   bottom: 20px;
   gap: 10px;
   margin-bottom: 25px;
@@ -108,7 +108,7 @@ const StyledNameInput = styled.input`
   text-align: center;
   padding: 0.2rem;
   font-family: PTSans;
-  grid-area: a;
+  grid-area: name;
 `;
 
 const StyledDateInput = styled.input`
@@ -117,7 +117,7 @@ const StyledDateInput = styled.input`
   text-align: center;
   padding: 0.3rem;
   font-family: PTSans;
-  grid-area: b;
+  grid-area: date;
 `;
 
 const StyledIdeaInput = styled.input`
@@ -126,7 +126,7 @@ const StyledIdeaInput = styled.input`
   text-align: center;
   padding: 0.3rem;
   font-family: PTSans;
-  grid-area: c;
+  grid-area: idea;
 `;
 
 const StyledSubmitButton = styled.button`
@@ -134,7 +134,7 @@ const StyledSubmitButton = styled.button`
   border: none;
   border-radius: 5px;
   padding: 10px;
-  grid-area: d;
+  grid-area: submit;
   text-align: center;
   font-family: PTSans;
   @media (min-height: 720px) {
@@ -146,7 +146,7 @@ const StyledCancelButton = styled.button`
   background-color: #fe4a49;
   border: none;
   border-radius: 5px;
-  grid-area: e;
+  grid-area: cancel;
   padding-top: 3px;
   @media (min-height: 720px) {
     margin-bottom: 20px;
