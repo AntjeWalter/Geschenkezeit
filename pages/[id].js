@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import MoreInfoForm from "../components/ProfilePage/MoreInfoForm";
 import MoreIdeasForm from "../components/ProfilePage/MoreIdeasForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
+import birthdayCalculation from "../helpers/birthdayCalculation";
 
 export default function ProfilePage({
   entries = [],
@@ -24,33 +25,13 @@ export default function ProfilePage({
     return null;
   }
 
-  const birthDate = currentProfile.birthday;
+  const nextBirthday = birthdayCalculation(currentProfile);
+
   const now = new Date();
-  const currentYear = now.getFullYear();
   const currentMonth = now.getMonth() + 1;
   const currentDay = now.getDate();
-  const birthMonth = birthDate.split("-")[1];
-  const birthDay = birthDate.split("-")[2];
-
-  function calculateNextBirthday() {
-    if (currentMonth <= birthMonth && currentDay < birthDay) {
-      const nextBirthday = new Date(
-        currentYear,
-        birthDate.split("-")[1] - 1,
-        birthDate.split("-")[2]
-      );
-      return nextBirthday;
-    } else {
-      const nextBirthday = new Date(
-        currentYear + 1,
-        birthDate.split("-")[1] - 1,
-        birthDate.split("-")[2]
-      );
-      return nextBirthday;
-    }
-  }
-
-  const nextBirthday = calculateNextBirthday();
+  const birthMonth = currentProfile.birthday.split("-")[1];
+  const birthDay = currentProfile.birthday.split("-")[2];
 
   const calculateDaysUntilBirthday = () => {
     const difference = differenceInCalendarDays(nextBirthday, now);
@@ -64,7 +45,8 @@ export default function ProfilePage({
   };
 
   const calculateAge = () => {
-    const age = differenceInYears(new Date(), new Date(birthDate)) + 1;
+    const age =
+      differenceInYears(new Date(), new Date(currentProfile.birthday)) + 1;
     return age;
   };
   const age = calculateAge();

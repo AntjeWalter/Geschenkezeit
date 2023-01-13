@@ -1,5 +1,7 @@
+import { differenceInCalendarDays } from "date-fns";
 import GlobalStyles from "../components/GlobalStyles";
 import { useLocalStorage } from "../helpers/hooks";
+import birthdayCalculation from "../helpers/birthdayCalculation";
 
 function MyApp({ Component, pageProps }) {
   const [entries, setEntries] = useLocalStorage("entries", []);
@@ -68,6 +70,44 @@ function MyApp({ Component, pageProps }) {
     }
   }
 
+  // Calculate difference between now and the upcoming birthda<
+  function calculateDifference(entry) {
+    const now = new Date();
+    const nextBirthday = birthdayCalculation(entry);
+    const difference = differenceInCalendarDays(nextBirthday, now);
+    return difference;
+  }
+
+  //Add calculated difference to each entry-object
+  const entriesWithDifference = entries.map((entry) => {
+    return { ...entry, difference: calculateDifference(entry) };
+  });
+
+  //Sorting the entries by next birthday or alphabetically
+  function handleSorting(sortBy) {
+    if (sortBy === "date") {
+      const sortedByDate = entriesWithDifference.slice().sort((a, b) => {
+        const difference1 = a.difference;
+        const difference2 = b.difference;
+        return difference1 - difference2;
+      });
+      setEntries(sortedByDate);
+    } else if (sortBy === "alphabet") {
+      const sortedByAlphabet = entries.slice().sort((a, b) => {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+      setEntries(sortedByAlphabet);
+    }
+  }
+
   return (
     <>
       <GlobalStyles />
@@ -79,6 +119,7 @@ function MyApp({ Component, pageProps }) {
         onUpdateEntryNotes={handleUpdateEntryNotes}
         onUpdateIdeas={handleUpdateIdeas}
         onIdeaAssign={handleIdeaAssign}
+        onSorting={handleSorting}
         entries={entries}
       />
     </>
