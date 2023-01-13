@@ -14,4 +14,11 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   background-color: #fed766;
+  position: fixed;
+  bottom: 60px;
+  right: 5px;
+  @media (min-width: 800px) {
+    position: sticky;
+    margin-left: 10px;
+  }
 `;

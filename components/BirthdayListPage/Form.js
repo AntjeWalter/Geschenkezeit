@@ -25,7 +25,8 @@ export default function Form({ onCreateEntry }) {
   }
 
   return (
-    <StyledDiv>
+    // <StyledDiv>
+    <>
       {formActive === true ? (
         <StyledForm onSubmit={handleSubmit}>
           <StyledNameInput
@@ -70,14 +71,16 @@ export default function Form({ onCreateEntry }) {
           }}
         />
       )}
-    </StyledDiv>
+    </>
+    // </StyledDiv>
   );
 }
 
 const StyledDiv = styled.div`
   display: flex;
   justify-content: right;
-  position: sticky;
+  //position: sticky;
+  position: relative;
   bottom: 60px;
 `;
 
