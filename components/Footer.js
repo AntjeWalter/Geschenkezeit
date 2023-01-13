@@ -7,13 +7,13 @@ export default function Footer() {
     <div>
       <StyledFooter>
         <Link href="/">
-          <BiHomeHeart size="5vh" color="white" />
+          <BiHomeHeart size="30px" color="white" />
         </Link>
         <Link href="/calendar">
-          <BiCalendarHeart size="5vh" color="white" />
+          <BiCalendarHeart size="30px" color="white" />
         </Link>
         <Link href="/universal-ideas">
-          <BiBookHeart size="5vh" color="white" />
+          <BiBookHeart size="30px" color="white" />
         </Link>
       </StyledFooter>
     </div>

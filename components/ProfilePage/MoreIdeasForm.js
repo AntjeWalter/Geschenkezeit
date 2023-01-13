@@ -25,7 +25,7 @@ export default function MoreIdeasForm({
               name="ideas"
               aria-label="Ideas for presents"
               defaultValue={currentProfile.ideas}
-              placeholder="Geschenkideen"
+              placeholder="Was könnte man der Person schenken?"
             ></StyledTextArea>
             <StyledButton type="submit">OK</StyledButton>
           </StyledForm>
@@ -58,6 +58,10 @@ const StyledTextArea = styled.textarea`
   align-self: left;
   width: 70vw;
   height: 5em;
+  border: none;
+  border-radius: 5px;
+  font-family: PTSans;
+  font-size: 0.9rem;
   @media (min-width: 800px) {
     width: 700px;
   }

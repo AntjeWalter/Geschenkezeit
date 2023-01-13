@@ -86,6 +86,10 @@ const StyledTextarea = styled.textarea`
   align-self: left;
   width: 70vw;
   height: 5em;
+  border: none;
+  border-radius: 5px;
+  font-family: PTSans;
+  font-size: 0.9rem;
   @media (min-width: 800px) {
     width: 700px;
   }

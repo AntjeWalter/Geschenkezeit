@@ -1,6 +1,5 @@
 import BirthdayList from "../components/BirthdayListPage/BirthdayList";
 import Header from "../components/Header";
-import AddButton from "../components/BirthdayListPage/AddButton";
 import Form from "../components/BirthdayListPage/Form";
 import Footer from "../components/Footer";
 import Sorting from "../components/BirthdayListPage/Sorting";

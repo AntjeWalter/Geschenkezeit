@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import styled from "styled-components";
 import AddButton from "./AddButton";
+import { BiXCircle } from "react-icons/bi";
 
 export default function Form({ onCreateEntry }) {
   const [formActive, setFormActive] = useState(false);
@@ -24,7 +25,7 @@ export default function Form({ onCreateEntry }) {
   }
 
   return (
-    <div>
+    <StyledDiv>
       {formActive === true ? (
         <StyledForm onSubmit={handleSubmit}>
           <StyledNameInput
@@ -51,7 +52,6 @@ export default function Form({ onCreateEntry }) {
             aria-label="Idea Input"
             className="ideaInput"
           ></StyledIdeaInput>
-
           <StyledSubmitButton type="submit" aria-label="Submit Input">
             Hinzufügen
           </StyledSubmitButton>
@@ -60,7 +60,7 @@ export default function Form({ onCreateEntry }) {
               setFormActive(false);
             }}
           >
-            x
+            <BiXCircle size="20px" />
           </StyledCancelButton>
         </StyledForm>
       ) : (
@@ -70,9 +70,16 @@ export default function Form({ onCreateEntry }) {
           }}
         />
       )}
-    </div>
+    </StyledDiv>
   );
 }
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: right;
+  position: sticky;
+  bottom: 60px;
+`;
 
 const StyledForm = styled.form`
   position: fixed;
@@ -90,6 +97,9 @@ const StyledForm = styled.form`
   max-width: 800px;
   width: 100vw;
   box-shadow: 0px -4px 10px 5px #c4c4c4;
+  @media (min-height: 720px) {
+    margin-bottom: 0px;
+  }
 `;
 
 const StyledNameInput = styled.input`
@@ -105,7 +115,7 @@ const StyledDateInput = styled.input`
   border: none;
   background-color: #e6e6ea;
   text-align: center;
-  padding: 0.2rem;
+  padding: 0.3rem;
   font-family: PTSans;
   grid-area: b;
 `;
@@ -114,7 +124,7 @@ const StyledIdeaInput = styled.input`
   border: none;
   background-color: #e6e6ea;
   text-align: center;
-  padding: 0.2rem;
+  padding: 0.3rem;
   font-family: PTSans;
   grid-area: c;
 `;
@@ -137,4 +147,8 @@ const StyledCancelButton = styled.button`
   border: none;
   border-radius: 5px;
   grid-area: e;
+  padding-top: 3px;
+  @media (min-height: 720px) {
+    margin-bottom: 20px;
+  }
 `;
