@@ -33,9 +33,9 @@ const StyledForm = styled.form`
   justify-items: center;
   bottom: 20px;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 34px;
   background-color: #f4f4f8;
-  padding: 0.5rem 1.2rem 1.2rem 1.2rem;
+  padding: 0.5rem 1rem 1rem 1rem;
   max-width: 800px;
   width: 100vw;
   box-shadow: 0px -4px 10px 5px #c4c4c4;
@@ -56,7 +56,4 @@ const StyledButton = styled.button`
   padding: 10px;
   text-align: center;
   font-family: PTSans;
-  @media (min-height: 720px) {
-    margin-bottom: 20px;
-  }
 `;

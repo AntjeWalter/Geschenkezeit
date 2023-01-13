@@ -50,9 +50,10 @@ export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
           </Fragment>
         ))}
       </StyledIdeaList>
-
-      <IdeasForm onCreateIdea={handleCreateIdea} />
-      <Footer />
+      <StyledFooter>
+        <IdeasForm onCreateIdea={handleCreateIdea} />
+        <Footer />
+      </StyledFooter>
     </>
   );
 }
@@ -65,4 +66,9 @@ const StyledHeading = styled.h2`
 
 const StyledIdeaList = styled.section`
   margin-bottom: 130px;
+`;
+
+const StyledFooter = styled.footer`
+  position: fixed;
+  bottom: 0;
 `;

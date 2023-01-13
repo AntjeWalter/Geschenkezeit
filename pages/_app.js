@@ -26,7 +26,9 @@ function MyApp({ Component, pageProps }) {
     const updatedList = entries.filter((entry) => {
       return entry.id !== id;
     });
-    setEntries([...updatedList]);
+    if (confirm(`Möchtest du diese Person löschen?`)) {
+      setEntries([...updatedList]);
+    }
   }
 
   function handleUpdateEntryNotes(adaptedNotes, id) {

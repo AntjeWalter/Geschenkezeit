@@ -75,7 +75,9 @@ export default function ProfilePage({
         personId={id}
         onUpdateIdeas={onUpdateIdeas}
       />
-      <Footer />
+      <StyledFooter>
+        <Footer />
+      </StyledFooter>
     </>
   );
 }
@@ -88,4 +90,9 @@ const StyledName = styled.h1`
 
 const StyledBirthday = styled.section`
   margin-left: 1.5rem;
+`;
+
+const StyledFooter = styled.footer`
+  position: fixed;
+  bottom: 0;
 `;
