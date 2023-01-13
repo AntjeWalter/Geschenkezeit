@@ -18,7 +18,6 @@ const StyledButton = styled.button`
   bottom: 60px;
   right: 5px;
   @media (min-width: 800px) {
-    position: sticky;
-    margin-left: 10px;
+    position: absolute;
   }
 `;

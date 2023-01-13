@@ -39,8 +39,10 @@ export default function Home({
           </Fragment>
         ))}
       </StyledSection>
-      <Form onCreateEntry={onCreateEntry} />
-      <Footer />
+      <StyledFooter>
+        <Form onCreateEntry={onCreateEntry} />
+        <Footer />
+      </StyledFooter>
     </>
   );
 }
@@ -59,4 +61,9 @@ const StyledHeading = styled.h2`
 const StyledSection = styled.section`
   margin-top: 20px;
   margin-bottom: 100px;
+`;
+
+const StyledFooter = styled.footer`
+  position: fixed;
+  bottom: 0;
 `;

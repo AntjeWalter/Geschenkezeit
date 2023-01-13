@@ -28,8 +28,8 @@ const StyledFooter = styled.footer`
   color: #f4f4f8;
   margin-block: 0px;
   padding: 10px;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   width: 100vw;
   max-width: 800px;
 `;

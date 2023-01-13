@@ -25,7 +25,6 @@ export default function Form({ onCreateEntry }) {
   }
 
   return (
-    // <StyledDiv>
     <>
       {formActive === true ? (
         <StyledForm onSubmit={handleSubmit}>
@@ -72,17 +71,8 @@ export default function Form({ onCreateEntry }) {
         />
       )}
     </>
-    // </StyledDiv>
   );
 }
-
-const StyledDiv = styled.div`
-  display: flex;
-  justify-content: right;
-  //position: sticky;
-  position: relative;
-  bottom: 60px;
-`;
 
 const StyledForm = styled.form`
   position: fixed;
@@ -101,7 +91,8 @@ const StyledForm = styled.form`
   width: 100vw;
   box-shadow: 0px -4px 10px 5px #c4c4c4;
   @media (min-height: 720px) {
-    margin-bottom: 0px;
+    margin-bottom: 35px;
+    padding-bottom: 0px;
   }
 `;
 
