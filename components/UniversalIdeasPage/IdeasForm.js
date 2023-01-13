@@ -35,10 +35,10 @@ const StyledForm = styled.form`
   gap: 10px;
   margin-bottom: 34px;
   background-color: #f4f4f8;
-  padding: 0.5rem 1rem 1rem 1rem;
+  padding: 0.5rem 1rem 10px 1rem;
   max-width: 800px;
   width: 100vw;
-  box-shadow: 0px -4px 10px 5px #c4c4c4;
+  box-shadow: 0px -10px 10px -5px #c4c4c4;
 `;
 
 const StyledInput = styled.input`
