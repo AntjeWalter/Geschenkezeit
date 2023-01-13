@@ -1,5 +1,6 @@
 import BirthdayList from "../components/BirthdayListPage/BirthdayList";
 import Header from "../components/Header";
+import AddButton from "../components/BirthdayListPage/AddButton";
 import Form from "../components/BirthdayListPage/Form";
 import Footer from "../components/Footer";
 import Sorting from "../components/BirthdayListPage/Sorting";
@@ -58,5 +59,5 @@ const StyledHeading = styled.h2`
 
 const StyledSection = styled.section`
   margin-top: 20px;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 `;
