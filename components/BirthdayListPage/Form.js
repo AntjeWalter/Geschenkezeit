@@ -83,7 +83,7 @@ const StyledForm = styled.form`
     "submit submit submit cancel";
   bottom: 20px;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   background-color: #f4f4f8;
   padding: 1.2rem;
   padding-top: 0.5rem;
