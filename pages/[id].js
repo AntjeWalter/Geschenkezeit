@@ -6,6 +6,7 @@ import MoreInfoForm from "../components/ProfilePage/MoreInfoForm";
 import MoreIdeasForm from "../components/ProfilePage/MoreIdeasForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 import birthdayCalculation from "../helpers/birthdayCalculation";
+import { BiArrowBack } from "react-icons/bi";
 
 export default function ProfilePage({
   entries = [],
@@ -76,6 +77,9 @@ export default function ProfilePage({
         onUpdateIdeas={onUpdateIdeas}
       />
       <StyledFooter>
+        <StyledButton onClick={() => router.back()}>
+          <BiArrowBack size="25px" />
+        </StyledButton>
         <Footer />
       </StyledFooter>
     </>
@@ -95,4 +99,12 @@ const StyledBirthday = styled.section`
 const StyledFooter = styled.footer`
   position: fixed;
   bottom: 0;
+`;
+
+const StyledButton = styled.button`
+  border: none;
+  border-radius: 5px;
+  background-color: #fed766;
+  padding-top: 3px;
+  margin: 0 0 5px 5px;
 `;

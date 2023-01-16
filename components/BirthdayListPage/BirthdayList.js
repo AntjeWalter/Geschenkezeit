@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
 import format from "date-fns/format";
+import { BsTrash2, BsPencil } from "react-icons/bs";
 
 export default function BirthdayList({
   id,
@@ -71,14 +72,14 @@ export default function BirthdayList({
               aria-label="Edit-Button"
               onClick={() => setEdit(!edit)}
             >
-              ✍🏼
+              <BsPencil />
             </StyledButton>
             <StyledButton
               type="button"
               aria-label="Delete-Button"
               onClick={() => onDelete(id)}
             >
-              🗑
+              <BsTrash2 />
             </StyledButton>
           </StyledTextAlign>
         </StyledEntry>

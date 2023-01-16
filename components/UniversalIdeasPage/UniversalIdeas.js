@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import AssignSelect from "./AssignSelect";
+import { BsTrash2, BsPencil } from "react-icons/bs";
 
 export default function UniversalIdeas({
   idea,
@@ -39,7 +40,7 @@ export default function UniversalIdeas({
             aria-label="Edit-Button"
             onClick={() => setEdit(!edit)}
           >
-            ✍🏼
+            <BsPencil />
           </StyledButton>
           <AssignSelect
             entries={entries}
@@ -51,7 +52,7 @@ export default function UniversalIdeas({
             aria-label="Delete-Button"
             onClick={() => onDeleteIdea(id)}
           >
-            🗑
+            <BsTrash2 />
           </StyledButton>
         </StyledIdeaContainer>
       )}
