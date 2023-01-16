@@ -106,5 +106,5 @@ const StyledButton = styled.button`
   border-radius: 5px;
   background-color: #fed766;
   padding-top: 3px;
-  margin-bottom: 3px;
+  margin: 0 0 5px 5px;
 `;
