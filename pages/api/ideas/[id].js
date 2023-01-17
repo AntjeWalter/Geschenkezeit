@@ -11,6 +11,7 @@ export default async function handler(req, res) {
       const idea = await Ideas.findById(id);
       res.status(200).json({
         idea: idea.idea,
+        id: idea._id,
       });
     } catch {
       res.status(400).json({ message: "mistake" });
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
   if (req.method === "DELETE") {
     const id = req.query.id;
 
-    const result = await Entries.findByIdAndDelete(id);
+    const result = await Ideas.findByIdAndDelete(id);
 
     if (result) {
       res.status(200).json({ message: "entry deleted" });

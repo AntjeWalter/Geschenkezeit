@@ -53,7 +53,7 @@ export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
       <StyledHeading>Allgemeine Geschenkideen</StyledHeading>
       <StyledIdeaList>
         {ideas.map((idea) => (
-          <Fragment key={idea._id}>
+          <Fragment key={idea.id}>
             <UniversalIdeas
               idea={idea.idea}
               onUpdateIdea={handleUpdateIdea}

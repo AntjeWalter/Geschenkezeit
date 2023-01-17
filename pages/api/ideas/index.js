@@ -6,8 +6,14 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     const ideas = await Ideas.find();
+    const ideasArray = ideas.map((idea) => {
+      return {
+        id: idea._id,
+        idea: idea.idea,
+      };
+    });
 
-    res.status(200).json(ideas);
+    res.status(200).json(ideasArray);
   }
 
   if (req.method === "POST") {

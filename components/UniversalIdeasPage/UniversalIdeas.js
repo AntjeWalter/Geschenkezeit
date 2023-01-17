@@ -17,7 +17,7 @@ export default function UniversalIdeas({
     event.preventDefault();
     const adaptedIdea = event.target.adaptedIdea.value;
     const editedIdea = { idea: adaptedIdea, id };
-    onUpdateIdea(editedIdea);
+    onUpdateIdea(editedIdea, id);
     setEdit(!edit);
   }
 
