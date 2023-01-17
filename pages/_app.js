@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
   const [entries, setEntries] = useState([]);
+  console.log("huhu, testi");
 
   async function handleCreateEntry(newEntry) {
     await fetch("/api/entries", {
