@@ -2,6 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function MoreIdeasForm({
+  id,
+  name,
+  birthday,
+  notes,
   currentProfile,
   personId,
   onUpdateIdeas,
@@ -11,7 +15,14 @@ export default function MoreIdeasForm({
   function handleSubmit(event) {
     event.preventDefault();
     const adaptedIdeas = event.target.ideas.value;
-    onUpdateIdeas(adaptedIdeas, personId);
+    const adaptedEntryWithMoreIdeas = {
+      id,
+      name,
+      birthday,
+      ideas: adaptedIdeas,
+      notes,
+    };
+    onUpdateIdeas(adaptedEntryWithMoreIdeas, personId);
     setEdit(!edit);
   }
 

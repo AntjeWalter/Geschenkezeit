@@ -5,7 +5,16 @@ export default function AssignSelect({ entries, idea, onIdeaAssign }) {
     event.preventDefault();
     const assignedName = event.target.value;
     const assignedIdea = idea;
-    onIdeaAssign(assignedName, assignedIdea);
+    const currentEntry = entries.find((entry) => entry.name === assignedName);
+    const currentEntryId = currentEntry.id;
+    const updatedEntryWithAssignedIdea = {
+      ...currentEntry,
+      ideas:
+        currentEntry.ideas === ""
+          ? assignedIdea
+          : currentEntry.ideas + ", " + assignedIdea,
+    };
+    onIdeaAssign(currentEntryId, updatedEntryWithAssignedIdea, assignedName);
     event.target.value = "selected";
   }
 

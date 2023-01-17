@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { useState } from "react";
 
 export default function MoreInfoForm({
+  name,
+  birthday,
+  ideas,
   personId,
   onUpdateEntryNotes,
   currentProfile,
@@ -11,7 +14,14 @@ export default function MoreInfoForm({
   function handleNotesSubmit(event) {
     event.preventDefault();
     const adaptedNotes = event.target.adaptedNotes.value;
-    onUpdateEntryNotes(adaptedNotes, personId);
+    const adaptedEntryWithNotes = {
+      personId,
+      name,
+      birthday,
+      ideas,
+      notes: adaptedNotes,
+    };
+    onUpdateEntryNotes(adaptedEntryWithNotes, personId);
     setEdit(!edit);
   }
 

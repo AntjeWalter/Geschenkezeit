@@ -28,7 +28,7 @@ export default function BirthdayList({
       ideas: adaptedIdeas,
       notes,
     };
-    onUpdateEntry(editedEntry);
+    onUpdateEntry(editedEntry, id);
     setEdit(!edit);
   }
 
