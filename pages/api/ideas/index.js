@@ -11,8 +11,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const data = req.body; // {"name": ..., "text": ...}
-
+    const data = req.body;
     try {
       const newIdea = await Ideas.create(data);
 

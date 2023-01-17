@@ -3,8 +3,7 @@ import Header from "../components/Header";
 import IdeasForm from "../components/UniversalIdeasPage/IdeasForm";
 import UniversalIdeas from "../components/UniversalIdeasPage/UniversalIdeas";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
   const [ideas, setIdeas] = useState([]);

@@ -13,7 +13,6 @@ export default async function handler(req, res) {
         birthday: entry.birthday,
         ideas: entry.ideas,
         notes: entry.notes,
-        difference: entry.difference,
       };
     });
 
@@ -21,7 +20,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const data = req.body; // {"name": ..., "text": ...}
+    const data = req.body;
 
     try {
       const newEntry = await Entries.create(data);

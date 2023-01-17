@@ -14,7 +14,6 @@ export default async function handler(req, res) {
         id: entry._id,
         name: entry.name,
         birthday: entry.birthday,
-        difference: entry.difference,
         ideas: entry.ideas,
         notes: entry.notes,
       });
