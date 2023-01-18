@@ -7,7 +7,7 @@ export default function Sorting({ onSorting }) {
   }
 
   return (
-    <StyledSelect onChange={handleChange}>
+    <StyledSelect onChange={handleChange} aria-label="Sort entries">
       <option value="selected">sortieren nach...</option>
       <option value="date">nächster Geburtstag zuerst</option>
       <option value="alphabet">Alphabet</option>

@@ -61,7 +61,10 @@ export default function CalendarFromReact({ entries }) {
       <StyledNameContainer>
         {birthdays.map((birthday) => (
           <Fragment key={birthday.id}>
-            <StyledLink href={`/${birthday.id}`}>
+            <StyledLink
+              href={`/${birthday.id}`}
+              aria-label="Link to profile page"
+            >
               {birthday.name}
               <BiChevronRight size="3.5vh" color="fed766" />
             </StyledLink>
@@ -146,9 +149,4 @@ const StyledHeadline = styled.h2`
   margin-right: 2rem;
   padding: 2px;
   border-bottom: 2px solid #fe4a49;
-`;
-
-const StyledNames = styled.p`
-  font-size: 1.1rem;
-  margin-left: 2rem;
 `;

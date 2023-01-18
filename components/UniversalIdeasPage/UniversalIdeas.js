@@ -30,7 +30,9 @@ export default function UniversalIdeas({
             name="adaptedIdea"
             defaultValue={idea}
           ></StyledEditInput>
-          <StyledEditButton type="submit">OK</StyledEditButton>
+          <StyledEditButton type="submit" aria-label="Save edited idea">
+            OK
+          </StyledEditButton>
         </StyledForm>
       ) : (
         <StyledIdeaContainer>

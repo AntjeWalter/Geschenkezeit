@@ -6,13 +6,16 @@ export default function Footer() {
   return (
     <div>
       <StyledFooter>
-        <Link href="/">
+        <Link href="/" aria-label="Link to birthday entries list">
           <BiHomeHeart size="30px" color="white" />
         </Link>
-        <Link href="/calendar">
+        <Link href="/calendar" aria-label="Link to calendar">
           <BiCalendarHeart size="30px" color="white" />
         </Link>
-        <Link href="/universal-ideas">
+        <Link
+          href="/universal-ideas"
+          aria-label="Link to universal present ideas"
+        >
           <BiBookHeart size="30px" color="white" />
         </Link>
       </StyledFooter>

@@ -24,12 +24,15 @@ export default function Home({
       <Header />
       <StyledLogin>
         {session ? (
-          <StyledLogOutButton onClick={signOut}>
+          <StyledLogOutButton onClick={signOut} aria-label="Log out">
             <FiLogOut size="20px" />
           </StyledLogOutButton>
         ) : (
           <>
-            <StyledLogInButton onClick={() => signIn("github")}>
+            <StyledLogInButton
+              onClick={() => signIn("github")}
+              aria-label="Log in"
+            >
               <FiLogIn /> Einloggen
             </StyledLogInButton>
             <StyledLogInFooter />

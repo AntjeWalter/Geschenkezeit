@@ -19,7 +19,7 @@ export default function AssignSelect({ entries, idea, onIdeaAssign }) {
   }
 
   return (
-    <StyledSelect onChange={handleChange}>
+    <StyledSelect onChange={handleChange} aria-label="Assign idea to person">
       <option value="selected">--Wem könnte das gefallen?--</option>
       {entries.map((entry) => (
         <option key={entry.id}>{entry.name}</option>
