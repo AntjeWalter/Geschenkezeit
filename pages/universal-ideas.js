@@ -3,33 +3,48 @@ import Header from "../components/Header";
 import IdeasForm from "../components/UniversalIdeasPage/IdeasForm";
 import UniversalIdeas from "../components/UniversalIdeasPage/UniversalIdeas";
 import styled from "styled-components";
-import { useLocalStorage } from "../helpers/hooks";
-import { Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
-  const [ideas, setIdeas] = useLocalStorage("ideas", []);
+  const [ideas, setIdeas] = useState([]);
 
-  function handleCreateIdea(newIdea) {
-    setIdeas([...ideas, newIdea]);
+  async function getIdeas() {
+    const response = await fetch("/api/ideas");
+    const ideasList = await response.json();
+    setIdeas(ideasList);
   }
 
-  function handleUpdateIdea(editedIdea, id) {
-    setIdeas(
-      ideas.map((idea) => {
-        if (idea.id === editedIdea.id) {
-          return editedIdea;
-        } else {
-          return idea;
-        }
-      })
-    );
-  }
+  useEffect(() => {
+    getIdeas();
+  }, []);
 
-  function handleDeleteIdea(id) {
-    const updatedIdea = ideas.filter((idea) => {
-      return idea.id !== id;
+  async function handleCreateIdea(newIdea) {
+    await fetch("/api/ideas", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newIdea),
     });
-    setIdeas([...updatedIdea]);
+    getIdeas();
+  }
+
+  async function handleUpdateIdea(editedIdea, id) {
+    await fetch("/api/ideas/" + id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editedIdea),
+    });
+    getIdeas();
+  }
+
+  async function handleDeleteIdea(id) {
+    if (confirm(`Möchtest du diese Idee löschen?`)) {
+      await fetch("/api/ideas/" + id, {
+        method: "DELETE",
+      });
+    }
+    getIdeas();
   }
 
   return (

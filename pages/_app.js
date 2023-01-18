@@ -1,78 +1,84 @@
 import { differenceInCalendarDays } from "date-fns";
 import GlobalStyles from "../components/GlobalStyles";
-import { useLocalStorage } from "../helpers/hooks";
 import birthdayCalculation from "../helpers/birthdayCalculation";
+import { useState, useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
-  const [entries, setEntries] = useLocalStorage("entries", []);
+  const [entries, setEntries] = useState([]);
 
-  function handleCreateEntry(newEntry) {
-    setEntries([...entries, newEntry]);
-  }
-
-  function handleUpdateEntry(editedEntry) {
-    setEntries(
-      entries.map((entry) => {
-        if (entry.id === editedEntry.id) {
-          return editedEntry;
-        } else {
-          return entry;
-        }
-      })
-    );
-  }
-
-  function handleDelete(id) {
-    const updatedList = entries.filter((entry) => {
-      return entry.id !== id;
+  async function handleCreateEntry(newEntry) {
+    await fetch("/api/entries", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEntry),
     });
+    getEntries();
+  }
+
+  async function handleUpdateEntry(editedEntry, id) {
+    await fetch("/api/entries/" + id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editedEntry, id),
+    });
+    getEntries();
+  }
+
+  async function handleDelete(id) {
     if (confirm(`Möchtest du diese Person löschen?`)) {
-      setEntries([...updatedList]);
+      await fetch("/api/entries/" + id, {
+        method: "DELETE",
+      });
     }
+    getEntries();
   }
 
-  function handleUpdateEntryNotes(adaptedNotes, id) {
-    setEntries(
-      entries.map((entry) => {
-        if (entry.id === id) {
-          return { ...entry, notes: adaptedNotes };
-        } else {
-          return entry;
-        }
-      })
-    );
+  async function getEntries() {
+    const response = await fetch("/api/entries");
+    const entriesList = await response.json();
+    setEntries(entriesList);
   }
 
-  function handleUpdateIdeas(adaptedIdeas, id) {
-    setEntries(
-      entries.map((entry) => {
-        if (entry.id === id) {
-          return { ...entry, ideas: adaptedIdeas };
-        } else {
-          return entry;
-        }
-      })
-    );
+  useEffect(() => {
+    getEntries();
+  }, []);
+
+  async function handleUpdateEntryNotes(adaptedEntryWithNotes, personId) {
+    await fetch("/api/entries/" + personId, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(adaptedEntryWithNotes),
+    });
+    getEntries();
   }
 
-  function handleIdeaAssign(assignedName, assignedIdea) {
+  async function handleUpdateIdeas(adaptedEntryWithMoreIdeas, id) {
+    await fetch("/api/entries/" + id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(adaptedEntryWithMoreIdeas),
+    });
+    getEntries();
+  }
+
+  async function handleIdeaAssign(
+    currentEntryId,
+    updatedEntryWithAssignedIdea,
+    assignedName
+  ) {
     if (confirm(`Möchtest du ${assignedName} diese Idee zuweisen?`)) {
-      setEntries(
-        entries.map((entry) => {
-          const newIdeaKey = !entry.ideas
-            ? assignedIdea
-            : entry.ideas + ", " + assignedIdea;
-          if (assignedName === entry.name) {
-            return { ...entry, ideas: newIdeaKey };
-          } else {
-            return entry;
-          }
-        })
-      );
+      await fetch("/api/entries/" + currentEntryId, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedEntryWithAssignedIdea),
+      });
+      getEntries();
     }
   }
 
-  // Calculate difference between now and the upcoming birthda<
+  // Calculate difference between now and the upcoming birthday
   function calculateDifference(entry) {
     const now = new Date();
     const nextBirthday = birthdayCalculation(entry);
@@ -86,7 +92,7 @@ function MyApp({ Component, pageProps }) {
   });
 
   //Sorting the entries by next birthday or alphabetically
-  function handleSorting(sortBy) {
+  async function handleSorting(sortBy) {
     if (sortBy === "date") {
       const sortedByDate = entriesWithDifference.slice().sort((a, b) => {
         const difference1 = a.difference;
