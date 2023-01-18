@@ -90,6 +90,16 @@ const StyledForm = styled.form`
   max-width: 800px;
   width: 100vw;
   box-shadow: 0px -4px 10px 5px #c4c4c4;
+  animation: 0.4s alternate slidein;
+  @keyframes slidein {
+    from {
+      transform: translateX(5%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+
   @media (min-height: 720px) {
     margin-bottom: 35px;
     padding-bottom: 0px;

@@ -55,27 +55,33 @@ export default function ProfilePage({
   return (
     <>
       <Header />
-      <StyledName>{currentProfile.name}</StyledName>
-      <StyledBirthday>
-        <p>
-          Geburtstag: {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
-        </p>
-        <p>
-          {calculateDaysUntilBirthday()}{" "}
-          {currentMonth == birthMonth && currentDay == birthDay ? age - 1 : age}
-          {age - 1 === 1 ? ` Jahr alt` : ` Jahre alt`}
-        </p>
-      </StyledBirthday>
-      <MoreInfoForm
-        personId={id}
-        currentProfile={currentProfile}
-        onUpdateEntryNotes={onUpdateEntryNotes}
-      />
-      <MoreIdeasForm
-        currentProfile={currentProfile}
-        personId={id}
-        onUpdateIdeas={onUpdateIdeas}
-      />
+      <StyledProfileContainer>
+        <StyledName>{currentProfile.name}</StyledName>
+        <StyledBirthday>
+          <p>
+            Geburtstag:{" "}
+            {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
+          </p>
+          <p>
+            {calculateDaysUntilBirthday()}{" "}
+            {currentMonth == birthMonth && currentDay == birthDay
+              ? age - 1
+              : age}
+            {age - 1 === 1 || age === 1 ? ` Jahr alt` : ` Jahre alt`}
+          </p>
+        </StyledBirthday>
+        <MoreInfoForm
+          personId={id}
+          currentProfile={currentProfile}
+          onUpdateEntryNotes={onUpdateEntryNotes}
+        />
+        <MoreIdeasForm
+          currentProfile={currentProfile}
+          personId={id}
+          onUpdateIdeas={onUpdateIdeas}
+        />
+      </StyledProfileContainer>
+
       <StyledFooter>
         <StyledButton onClick={() => router.back()}>
           <BiArrowBack size="25px" />
@@ -94,6 +100,15 @@ const StyledName = styled.h1`
 
 const StyledBirthday = styled.section`
   margin-left: 1.5rem;
+`;
+
+const StyledProfileContainer = styled.section`
+  background-color: #e6e6ea;
+  height: 70vh;
+  margin: 20px;
+  padding: 2px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px -5px #c4c4c7;
 `;
 
 const StyledFooter = styled.footer`

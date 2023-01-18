@@ -89,6 +89,7 @@ const StyledLink = styled(Link)`
   color: black;
   display: flex;
   justify-content: space-between;
+  box-shadow: 5px 5px 10px -5px #c4c4c7;
 `;
 
 // styled components are not possible with react-calendar and MUI Badges, therefore it's styled with the classes from the DevTools here

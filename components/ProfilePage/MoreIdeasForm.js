@@ -38,7 +38,9 @@ export default function MoreIdeasForm({
               defaultValue={currentProfile.ideas}
               placeholder="Was könnte man der Person schenken?"
             ></StyledTextArea>
-            <StyledButton type="submit">OK</StyledButton>
+            <StyledButton type="submit" aria-label="Save ideas">
+              OK
+            </StyledButton>
           </StyledForm>
         ) : (
           <>

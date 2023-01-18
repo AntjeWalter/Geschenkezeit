@@ -122,6 +122,7 @@ const StyledEntry = styled.section`
   padding: 15px;
   border-radius: 5px;
   align-items: center;
+  box-shadow: 5px 5px 10px -5px #c4c4c7;
 `;
 
 const StyledLink = styled(Link)`

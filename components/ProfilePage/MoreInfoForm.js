@@ -38,7 +38,9 @@ export default function MoreInfoForm({
               defaultValue={currentProfile.notes}
               required
             ></StyledTextarea>
-            <StyledButton type="submit">OK</StyledButton>
+            <StyledButton type="submit" aria-label="Save notes">
+              OK
+            </StyledButton>
           </StyledForm>
         ) : (
           <>
