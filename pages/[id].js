@@ -7,12 +7,14 @@ import MoreIdeasForm from "../components/ProfilePage/MoreIdeasForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 import birthdayCalculation from "../helpers/birthdayCalculation";
 import { BiArrowBack } from "react-icons/bi";
+import { useSession } from "next-auth/react";
 
 export default function ProfilePage({
   entries = [],
   onUpdateEntryNotes,
   onUpdateIdeas,
 }) {
+  const { data: session } = useSession();
   const router = useRouter();
   const { id } = router.query;
 
@@ -55,39 +57,42 @@ export default function ProfilePage({
   return (
     <>
       <Header />
-      <StyledProfileContainer>
-        <StyledName>{currentProfile.name}</StyledName>
-        <StyledBirthday>
-          <p>
-            Geburtstag:{" "}
-            {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
-          </p>
-          <p>
-            {calculateDaysUntilBirthday()}{" "}
-            {currentMonth == birthMonth && currentDay == birthDay
-              ? age - 1
-              : age}
-            {age - 1 === 1 || age === 1 ? ` Jahr alt` : ` Jahre alt`}
-          </p>
-        </StyledBirthday>
-        <MoreInfoForm
-          personId={id}
-          currentProfile={currentProfile}
-          onUpdateEntryNotes={onUpdateEntryNotes}
-        />
-        <MoreIdeasForm
-          currentProfile={currentProfile}
-          personId={id}
-          onUpdateIdeas={onUpdateIdeas}
-        />
-      </StyledProfileContainer>
-
-      <StyledFooter>
-        <StyledButton onClick={() => router.back()}>
-          <BiArrowBack size="25px" />
-        </StyledButton>
-        <Footer />
-      </StyledFooter>
+      {session && (
+        <>
+          <StyledProfileContainer>
+            <StyledName>{currentProfile.name}</StyledName>
+            <StyledBirthday>
+              <p>
+                Geburtstag:{" "}
+                {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
+              </p>
+              <p>
+                {calculateDaysUntilBirthday()}{" "}
+                {currentMonth == birthMonth && currentDay == birthDay
+                  ? age - 1
+                  : age}
+                {age - 1 === 1 || age === 1 ? ` Jahr alt` : ` Jahre alt`}
+              </p>
+            </StyledBirthday>
+            <MoreInfoForm
+              personId={id}
+              currentProfile={currentProfile}
+              onUpdateEntryNotes={onUpdateEntryNotes}
+            />
+            <MoreIdeasForm
+              currentProfile={currentProfile}
+              personId={id}
+              onUpdateIdeas={onUpdateIdeas}
+            />
+          </StyledProfileContainer>
+          <StyledFooter>
+            <StyledButton onClick={() => router.back()}>
+              <BiArrowBack size="25px" />
+            </StyledButton>
+            <Footer />
+          </StyledFooter>
+        </>
+      )}
     </>
   );
 }
