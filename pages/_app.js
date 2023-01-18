@@ -1,10 +1,22 @@
+import Head from "next/head";
 import { differenceInCalendarDays } from "date-fns";
 import GlobalStyles from "../components/GlobalStyles";
 import birthdayCalculation from "../helpers/birthdayCalculation";
 import { useState, useEffect } from "react";
+import { SessionProvider } from "next-auth/react";
+import fetchData from "../helpers/fetchData";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [entries, setEntries] = useState([]);
+
+  async function getEntries() {
+    const entryList = await fetchData("/api/entries");
+    setEntries(entryList);
+  }
+
+  useEffect(() => {
+    getEntries();
+  }, []);
 
   async function handleCreateEntry(newEntry) {
     await fetch("/api/entries", {
@@ -34,16 +46,6 @@ function MyApp({ Component, pageProps }) {
     }
     getEntries();
   }
-
-  async function getEntries() {
-    const response = await fetch("/api/entries");
-    const entriesList = await response.json();
-    setEntries(entriesList);
-  }
-
-  useEffect(() => {
-    getEntries();
-  }, []);
 
   async function handleUpdateEntryNotes(adaptedEntryWithNotes, personId) {
     await fetch("/api/entries/" + personId, {
@@ -117,7 +119,10 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <SessionProvider session={session}>
+      <Head>
+        <title>Geschenkezeit</title>
+      </Head>
       <GlobalStyles />
       <Component
         {...pageProps}
@@ -130,7 +135,7 @@ function MyApp({ Component, pageProps }) {
         onSorting={handleSorting}
         entries={entries}
       />
-    </>
+    </SessionProvider>
   );
 }
 

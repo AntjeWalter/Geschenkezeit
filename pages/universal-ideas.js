@@ -4,13 +4,13 @@ import IdeasForm from "../components/UniversalIdeasPage/IdeasForm";
 import UniversalIdeas from "../components/UniversalIdeasPage/UniversalIdeas";
 import styled from "styled-components";
 import { useState, useEffect, Fragment } from "react";
+import fetchData from "../helpers/fetchData";
 
 export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
   const [ideas, setIdeas] = useState([]);
 
   async function getIdeas() {
-    const response = await fetch("/api/ideas");
-    const ideasList = await response.json();
+    const ideasList = await fetchData("/api/ideas");
     setIdeas(ideasList);
   }
 

@@ -21,7 +21,7 @@ const StyledSelect = styled.select`
   width: 125px;
   background-color: #f4f4f8;
   color: gray;
-  margin: 1.25rem 0 0.25rem 0;
+  margin: 10px 0 0.25rem 0;
   padding: 0.2rem;
   font-family: PTSans;
   border-radius: 3px;
