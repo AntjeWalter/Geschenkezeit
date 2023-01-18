@@ -18,6 +18,7 @@ const StyledButton = styled.button`
   bottom: 60px;
   right: 5px;
   padding-top: 3px;
+  box-shadow: 5px 5px 15px -3px #a6a6a6;
   @media (min-width: 800px) {
     position: absolute;
   }

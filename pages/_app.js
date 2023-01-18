@@ -1,9 +1,11 @@
+import Head from "next/head";
 import { differenceInCalendarDays } from "date-fns";
 import GlobalStyles from "../components/GlobalStyles";
 import birthdayCalculation from "../helpers/birthdayCalculation";
 import { useState, useEffect } from "react";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [entries, setEntries] = useState([]);
 
   async function handleCreateEntry(newEntry) {
@@ -117,7 +119,10 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <SessionProvider session={session}>
+      <Head>
+        <title>Geschenkezeit</title>
+      </Head>
       <GlobalStyles />
       <Component
         {...pageProps}
@@ -130,7 +135,7 @@ function MyApp({ Component, pageProps }) {
         onSorting={handleSorting}
         entries={entries}
       />
-    </>
+    </SessionProvider>
   );
 }
 
