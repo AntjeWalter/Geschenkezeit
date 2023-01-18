@@ -1,11 +1,19 @@
 import dbConnect from "../../../db/dbConnect";
 import Entries from "../../../db/Models/Entries";
+import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
   await dbConnect();
 
+  const session = await getSession({ req });
+  const email = session?.user.email;
+
+  if (!email) {
+    return res.status(401).json({ message: "Bitte erneut einloggen" });
+  }
+
   if (req.method === "GET") {
-    const entries = await Entries.find();
+    const entries = await Entries.find({ user: email });
     const entriesArray = entries.map((entry) => {
       return {
         id: entry._id,
@@ -13,6 +21,7 @@ export default async function handler(req, res) {
         birthday: entry.birthday,
         ideas: entry.ideas,
         notes: entry.notes,
+        user: entry.user,
       };
     });
 
@@ -20,7 +29,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
-    const data = req.body;
+    const data = { ...req.body, user: email };
 
     try {
       const newEntry = await Entries.create(data);

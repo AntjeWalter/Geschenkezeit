@@ -4,9 +4,19 @@ import GlobalStyles from "../components/GlobalStyles";
 import birthdayCalculation from "../helpers/birthdayCalculation";
 import { useState, useEffect } from "react";
 import { SessionProvider } from "next-auth/react";
+import fetchData from "../helpers/fetchData";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [entries, setEntries] = useState([]);
+
+  async function getEntries() {
+    const entryList = await fetchData("/api/entries");
+    setEntries(entryList);
+  }
+
+  useEffect(() => {
+    getEntries();
+  }, []);
 
   async function handleCreateEntry(newEntry) {
     await fetch("/api/entries", {
@@ -36,16 +46,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     }
     getEntries();
   }
-
-  async function getEntries() {
-    const response = await fetch("/api/entries");
-    const entriesList = await response.json();
-    setEntries(entriesList);
-  }
-
-  useEffect(() => {
-    getEntries();
-  }, []);
 
   async function handleUpdateEntryNotes(adaptedEntryWithNotes, personId) {
     await fetch("/api/entries/" + personId, {

@@ -31,26 +31,6 @@ if (process.env.VERCEL_ENV === "preview") {
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
-    }),
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        username: { label: "Benutzername", type: "text" },
-        password: { label: "Passwort", type: "password" },
-      },
-      async authorize(credentials) {
-        if (
-          credentials.username === "Geburtstagskind" &&
-          credentials.password === "Geburtstagskind"
-        ) {
-          return {
-            name: "Test-Geburtstagskind",
-            email: "Geburtstagskind@example.com",
-          };
-        } else {
-          return null;
-        }
-      },
     })
   );
 }
