@@ -5,8 +5,10 @@ import UniversalIdeas from "../components/UniversalIdeasPage/UniversalIdeas";
 import styled from "styled-components";
 import { useState, useEffect, Fragment } from "react";
 import fetchData from "../helpers/fetchData";
+import { useSession } from "next-auth/react";
 
 export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
+  const { data: session } = useSession();
   const [ideas, setIdeas] = useState([]);
 
   async function getIdeas() {
@@ -50,25 +52,29 @@ export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
   return (
     <>
       <Header />
-      <StyledHeading>Allgemeine Geschenkideen</StyledHeading>
-      <StyledIdeaList>
-        {ideas.map((idea) => (
-          <Fragment key={idea.id}>
-            <UniversalIdeas
-              idea={idea.idea}
-              onUpdateIdea={handleUpdateIdea}
-              onDeleteIdea={handleDeleteIdea}
-              onIdeaAssign={onIdeaAssign}
-              id={idea.id}
-              entries={entries}
-            />
-          </Fragment>
-        ))}
-      </StyledIdeaList>
-      <StyledFooter>
-        <IdeasForm onCreateIdea={handleCreateIdea} />
-        <Footer />
-      </StyledFooter>
+      {session && (
+        <>
+          <StyledHeading>Allgemeine Geschenkideen</StyledHeading>
+          <StyledIdeaList>
+            {ideas.map((idea) => (
+              <Fragment key={idea.id}>
+                <UniversalIdeas
+                  idea={idea.idea}
+                  onUpdateIdea={handleUpdateIdea}
+                  onDeleteIdea={handleDeleteIdea}
+                  onIdeaAssign={onIdeaAssign}
+                  id={idea.id}
+                  entries={entries}
+                />
+              </Fragment>
+            ))}
+          </StyledIdeaList>
+          <StyledFooter>
+            <IdeasForm onCreateIdea={handleCreateIdea} />
+            <Footer />
+          </StyledFooter>
+        </>
+      )}
     </>
   );
 }
@@ -76,7 +82,7 @@ export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
 const StyledHeading = styled.h2`
   margin-left: 30px;
   margin-right: 30px;
-  border-bottom: 2px solid #fe4a49;
+  border-bottom: 2px solid var(--red);
 `;
 
 const StyledIdeaList = styled.section`

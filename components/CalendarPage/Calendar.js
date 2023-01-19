@@ -61,7 +61,10 @@ export default function CalendarFromReact({ entries }) {
       <StyledNameContainer>
         {birthdays.map((birthday) => (
           <Fragment key={birthday.id}>
-            <StyledLink href={`/${birthday.id}`}>
+            <StyledLink
+              href={`/${birthday.id}`}
+              aria-label="Link zur Profilseite"
+            >
               {birthday.name}
               <BiChevronRight size="3.5vh" color="fed766" />
             </StyledLink>
@@ -79,13 +82,14 @@ const StyledNameContainer = styled.section`
 const StyledLink = styled(Link)`
   margin: 0.5rem 2rem 0.5rem 2rem;
   display: block;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   border-radius: 5px;
   padding: 0.5rem;
   text-decoration: none;
   color: black;
   display: flex;
   justify-content: space-between;
+  box-shadow: 5px 5px 10px -5px #c4c4c7;
 `;
 
 // styled components are not possible with react-calendar and MUI Badges, therefore it's styled with the classes from the DevTools here
@@ -95,7 +99,7 @@ const StyledCalendarContainer = styled.section`
 
   button {
     margin: 2px;
-    background-color: #e6e6ea;
+    background-color: var(--darkgray);
     border-radius: 3px;
   }
   .react-calendar {
@@ -119,7 +123,7 @@ const StyledCalendarContainer = styled.section`
     color: black;
   }
   .react-calendar__tile--active:enabled:hover {
-    background: #fed766;
+    background: var(--yellow);
   }
   .react-calendar__year-view__months,
   .react-calendar__decade-view__years,
@@ -145,10 +149,5 @@ const StyledHeadline = styled.h2`
   margin-left: 2rem;
   margin-right: 2rem;
   padding: 2px;
-  border-bottom: 2px solid #fe4a49;
-`;
-
-const StyledNames = styled.p`
-  font-size: 1.1rem;
-  margin-left: 2rem;
+  border-bottom: 2px solid var(--red);
 `;

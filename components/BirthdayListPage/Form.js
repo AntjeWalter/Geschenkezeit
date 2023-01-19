@@ -32,7 +32,7 @@ export default function Form({ onCreateEntry }) {
             type="text"
             placeholder="Name"
             name="name"
-            aria-label="Name Input"
+            aria-label="Eingabe Name"
             className="nameInput"
             required
           ></StyledNameInput>
@@ -40,7 +40,7 @@ export default function Form({ onCreateEntry }) {
             type="date"
             placeholder="Geburtstag"
             name="date"
-            aria-label="Birthday Input"
+            aria-label="Eingabe Geburtstag"
             className="dateInput"
             min="1900-01-01"
             required
@@ -49,10 +49,10 @@ export default function Form({ onCreateEntry }) {
             type="text"
             placeholder="Geschenkideen"
             name="idea"
-            aria-label="Idea Input"
+            aria-label="Eingabe Geschenkideen"
             className="ideaInput"
           ></StyledIdeaInput>
-          <StyledSubmitButton type="submit" aria-label="Submit Input">
+          <StyledSubmitButton type="submit" aria-label="Eintrag hinzufügen">
             Hinzufügen
           </StyledSubmitButton>
           <StyledCancelButton
@@ -84,12 +84,22 @@ const StyledForm = styled.form`
   bottom: 20px;
   gap: 10px;
   margin-bottom: 34px;
-  background-color: #f4f4f8;
+  background-color: var(--lightgray);
   padding: 1.2rem;
   padding-top: 0.5rem;
   max-width: 800px;
   width: 100vw;
   box-shadow: 0px -4px 10px 5px #c4c4c4;
+  animation: 0.4s alternate slidein;
+  @keyframes slidein {
+    from {
+      transform: translateX(5%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+
   @media (min-height: 720px) {
     margin-bottom: 35px;
     padding-bottom: 0px;
@@ -98,7 +108,7 @@ const StyledForm = styled.form`
 
 const StyledNameInput = styled.input`
   border: none;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   text-align: center;
   padding: 0.2rem;
   font-family: PTSans;
@@ -107,7 +117,7 @@ const StyledNameInput = styled.input`
 
 const StyledDateInput = styled.input`
   border: none;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   text-align: center;
   padding: 0.3rem;
   font-family: PTSans;
@@ -116,7 +126,7 @@ const StyledDateInput = styled.input`
 
 const StyledIdeaInput = styled.input`
   border: none;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   text-align: center;
   padding: 0.3rem;
   font-family: PTSans;
@@ -124,7 +134,7 @@ const StyledIdeaInput = styled.input`
 `;
 
 const StyledSubmitButton = styled.button`
-  background-color: #fed766;
+  background-color: var(--yellow);
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -137,7 +147,7 @@ const StyledSubmitButton = styled.button`
 `;
 
 const StyledCancelButton = styled.button`
-  background-color: #fe4a49;
+  background-color: var(--red);
   border: none;
   border-radius: 5px;
   grid-area: cancel;

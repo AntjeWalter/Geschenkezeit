@@ -19,7 +19,7 @@ export default function AssignSelect({ entries, idea, onIdeaAssign }) {
   }
 
   return (
-    <StyledSelect onChange={handleChange}>
+    <StyledSelect onChange={handleChange} aria-label="Zu Person zuordnen">
       <option value="selected">--Wem könnte das gefallen?--</option>
       {entries.map((entry) => (
         <option key={entry.id}>{entry.name}</option>
@@ -29,7 +29,7 @@ export default function AssignSelect({ entries, idea, onIdeaAssign }) {
 }
 
 const StyledSelect = styled.select`
-  background-color: #f4f4f8;
+  background-color: var(--lightgray);
   color: gray;
   margin: 0 1rem 0 1rem;
   padding: 0.2rem;

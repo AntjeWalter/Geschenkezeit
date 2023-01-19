@@ -16,6 +16,14 @@ const GlobalStyles = createGlobalStyle`
         position: relative;
     }
 
+    :root {
+        --lightgray: #f4f4f8;
+        --darkgray: #e6e6ea;
+        --yellow: #fed766;
+        --blue: #2ab7ca;
+        --red: #fe4a49;
+    }
+
     * {
         box-sizing: border-box;
     }

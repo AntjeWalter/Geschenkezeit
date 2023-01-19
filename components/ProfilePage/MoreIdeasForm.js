@@ -34,11 +34,13 @@ export default function MoreIdeasForm({
           <StyledForm onSubmit={handleSubmit}>
             <StyledTextArea
               name="ideas"
-              aria-label="Ideas for presents"
+              aria-label="Eingabe Geschenkideen"
               defaultValue={currentProfile.ideas}
               placeholder="Was könnte man der Person schenken?"
             ></StyledTextArea>
-            <StyledButton type="submit">OK</StyledButton>
+            <StyledButton type="submit" aria-label="Ideen speichern">
+              OK
+            </StyledButton>
           </StyledForm>
         ) : (
           <>
@@ -83,7 +85,7 @@ const StyledButton = styled.button`
   width: 1.8rem;
   align-self: center;
   border: none;
-  background-color: #fed766;
+  background-color: var(--yellow);
   border-radius: 5px;
 `;
 

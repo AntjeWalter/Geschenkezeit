@@ -5,8 +5,7 @@ import Footer from "../components/Footer";
 import Sorting from "../components/BirthdayListPage/Sorting";
 import styled from "styled-components";
 import { Fragment } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
-import { FiLogOut, FiLogIn } from "react-icons/fi";
+import { useSession } from "next-auth/react";
 
 export default function Home({
   entries,
@@ -22,20 +21,6 @@ export default function Home({
   return (
     <>
       <Header />
-      <StyledLogin>
-        {session ? (
-          <StyledLogOutButton onClick={signOut}>
-            <FiLogOut size="20px" />
-          </StyledLogOutButton>
-        ) : (
-          <>
-            <StyledLogInButton onClick={() => signIn("github")}>
-              <FiLogIn /> Einloggen
-            </StyledLogInButton>
-            <StyledLogInFooter />
-          </>
-        )}
-      </StyledLogin>
       {session && (
         <>
           <StyledHeadingContainer>
@@ -69,47 +54,10 @@ export default function Home({
   );
 }
 
-const StyledLogin = styled.section`
-  text-align: right;
-  margin-right: 2rem;
-`;
-
-const StyledLogInFooter = styled.footer`
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  background-color: #2ab7ca;
-  color: #f4f4f8;
-  margin-block: 0px;
-  padding: 10px;
-  width: 100vw;
-  height: 50px;
-  max-width: 800px;
-  position: fixed;
-  bottom: 0;
-`;
-
-const StyledLogOutButton = styled.button`
-  border: none;
-  border-radius: 5px;
-  padding-top: 3px;
-  margin-top: 10px;
-  font-family: PTSans;
-`;
-
-const StyledLogInButton = styled.button`
-  margin-top: 10px;
-  background-color: #fed766;
-  border: none;
-  border-radius: 3px;
-  padding: 5px;
-  font-size: 1rem;
-`;
-
 const StyledHeadingContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #fe4a49;
+  border-bottom: 2px solid var(--red);
   margin: 0 2rem 0 2rem;
   height: auto;
 `;

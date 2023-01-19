@@ -7,12 +7,14 @@ import MoreIdeasForm from "../components/ProfilePage/MoreIdeasForm";
 import { differenceInCalendarDays, differenceInYears, format } from "date-fns";
 import birthdayCalculation from "../helpers/birthdayCalculation";
 import { BiArrowBack } from "react-icons/bi";
+import { useSession } from "next-auth/react";
 
 export default function ProfilePage({
   entries = [],
   onUpdateEntryNotes,
   onUpdateIdeas,
 }) {
+  const { data: session } = useSession();
   const router = useRouter();
   const { id } = router.query;
 
@@ -55,33 +57,42 @@ export default function ProfilePage({
   return (
     <>
       <Header />
-      <StyledName>{currentProfile.name}</StyledName>
-      <StyledBirthday>
-        <p>
-          Geburtstag: {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
-        </p>
-        <p>
-          {calculateDaysUntilBirthday()}{" "}
-          {currentMonth == birthMonth && currentDay == birthDay ? age - 1 : age}
-          {age - 1 === 1 ? ` Jahr alt` : ` Jahre alt`}
-        </p>
-      </StyledBirthday>
-      <MoreInfoForm
-        personId={id}
-        currentProfile={currentProfile}
-        onUpdateEntryNotes={onUpdateEntryNotes}
-      />
-      <MoreIdeasForm
-        currentProfile={currentProfile}
-        personId={id}
-        onUpdateIdeas={onUpdateIdeas}
-      />
-      <StyledFooter>
-        <StyledButton onClick={() => router.back()}>
-          <BiArrowBack size="25px" />
-        </StyledButton>
-        <Footer />
-      </StyledFooter>
+      {session && (
+        <>
+          <StyledProfileContainer>
+            <StyledName>{currentProfile.name}</StyledName>
+            <StyledBirthday>
+              <p>
+                Geburtstag:{" "}
+                {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
+              </p>
+              <p>
+                {calculateDaysUntilBirthday()}{" "}
+                {currentMonth == birthMonth && currentDay == birthDay
+                  ? age - 1
+                  : age}
+                {age - 1 === 1 || age === 1 ? ` Jahr alt` : ` Jahre alt`}
+              </p>
+            </StyledBirthday>
+            <MoreInfoForm
+              personId={id}
+              currentProfile={currentProfile}
+              onUpdateEntryNotes={onUpdateEntryNotes}
+            />
+            <MoreIdeasForm
+              currentProfile={currentProfile}
+              personId={id}
+              onUpdateIdeas={onUpdateIdeas}
+            />
+          </StyledProfileContainer>
+          <StyledFooter>
+            <StyledButton onClick={() => router.back()}>
+              <BiArrowBack size="25px" />
+            </StyledButton>
+            <Footer />
+          </StyledFooter>
+        </>
+      )}
     </>
   );
 }
@@ -89,11 +100,20 @@ export default function ProfilePage({
 const StyledName = styled.h1`
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  border-bottom: 2px solid #fe4a49;
+  border-bottom: 2px solid var(--red);
 `;
 
 const StyledBirthday = styled.section`
   margin-left: 1.5rem;
+`;
+
+const StyledProfileContainer = styled.section`
+  background-color: var(--darkgray);
+  height: 70vh;
+  margin: 20px;
+  padding: 2px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px -5px #c4c4c7;
 `;
 
 const StyledFooter = styled.footer`
@@ -104,7 +124,8 @@ const StyledFooter = styled.footer`
 const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
-  background-color: #fed766;
+  background-color: var(--yellow);
   padding-top: 3px;
   margin: 0 0 5px 5px;
+  box-shadow: 3px 3px 10px -3px #a6a6a6;
 `;

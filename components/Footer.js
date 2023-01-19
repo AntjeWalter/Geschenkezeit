@@ -6,13 +6,16 @@ export default function Footer() {
   return (
     <div>
       <StyledFooter>
-        <Link href="/">
+        <Link href="/" aria-label="Link zur Geburtstagsliste">
           <BiHomeHeart size="30px" color="white" />
         </Link>
-        <Link href="/calendar">
+        <Link href="/calendar" aria-label="Link zum Kalender">
           <BiCalendarHeart size="30px" color="white" />
         </Link>
-        <Link href="/universal-ideas">
+        <Link
+          href="/universal-ideas"
+          aria-label="Link zu allgemeinen Geschenkideen"
+        >
           <BiBookHeart size="30px" color="white" />
         </Link>
       </StyledFooter>
@@ -24,8 +27,8 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-around;
   text-align: center;
-  background-color: #2ab7ca;
-  color: #f4f4f8;
+  background-color: var(--blue);
+  color: var(--lightgray);
   margin-block: 0px;
   padding: 10px;
   width: 100vw;

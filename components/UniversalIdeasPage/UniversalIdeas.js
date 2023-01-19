@@ -28,16 +28,22 @@ export default function UniversalIdeas({
           <StyledEditInput
             type="text"
             name="adaptedIdea"
+            aria-label="Bearbeitete Idee"
             defaultValue={idea}
           ></StyledEditInput>
-          <StyledEditButton type="submit">OK</StyledEditButton>
+          <StyledEditButton
+            type="submit"
+            aria-label="Bearbeitete Idee speichern"
+          >
+            OK
+          </StyledEditButton>
         </StyledForm>
       ) : (
         <StyledIdeaContainer>
           <StyledIdea>{idea}</StyledIdea>
           <StyledButton
             type="button"
-            aria-label="Edit-Button"
+            aria-label="Bearbeiten-Button"
             onClick={() => setEdit(!edit)}
           >
             <BsPencil />
@@ -49,7 +55,7 @@ export default function UniversalIdeas({
           />
           <StyledButton
             type="button"
-            aria-label="Delete-Button"
+            aria-label="Löschen-Button"
             onClick={() => onDeleteIdea(id)}
           >
             <BsTrash2 />
@@ -78,7 +84,7 @@ const StyledEditInput = styled.input`
 const StyledEditButton = styled.button`
   border: none;
   border-radius: 5px;
-  background-color: #fed766;
+  background-color: var(--yellow);
   padding: 10px;
   font-family: PTSans;
 `;
@@ -89,17 +95,18 @@ const StyledIdeaContainer = styled.div`
   margin: auto auto 10px auto;
   width: 90%;
   word-wrap: break-word;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   padding: 10px 5px 10px 5px;
   border-radius: 5px;
   align-items: center;
+  box-shadow: 5px 5px 10px -5px #c4c4c7;
 `;
 
 const StyledIdea = styled.p`
   margin: auto;
   width: 90%;
   word-wrap: break-word;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   padding: 5px;
   border-radius: 5px;
   align-items: center;
