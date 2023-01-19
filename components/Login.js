@@ -31,7 +31,6 @@ const StyledLogInFooter = styled.footer`
   text-align: center;
   background-color: #2ab7ca;
   color: #f4f4f8;
-  margin-block: 0px;
   padding: 10px;
   width: 100vw;
   height: 50px;

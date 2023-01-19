@@ -82,7 +82,7 @@ const StyledNameContainer = styled.section`
 const StyledLink = styled(Link)`
   margin: 0.5rem 2rem 0.5rem 2rem;
   display: block;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   border-radius: 5px;
   padding: 0.5rem;
   text-decoration: none;
@@ -99,7 +99,7 @@ const StyledCalendarContainer = styled.section`
 
   button {
     margin: 2px;
-    background-color: #e6e6ea;
+    background-color: var(--darkgray);
     border-radius: 3px;
   }
   .react-calendar {
@@ -123,7 +123,7 @@ const StyledCalendarContainer = styled.section`
     color: black;
   }
   .react-calendar__tile--active:enabled:hover {
-    background: #fed766;
+    background: var(--yellow);
   }
   .react-calendar__year-view__months,
   .react-calendar__decade-view__years,
@@ -149,5 +149,5 @@ const StyledHeadline = styled.h2`
   margin-left: 2rem;
   margin-right: 2rem;
   padding: 2px;
-  border-bottom: 2px solid #fe4a49;
+  border-bottom: 2px solid var(--red);
 `;

@@ -19,7 +19,7 @@ const StyledSelect = styled.select`
   right: 20px;
   text-align: right;
   width: 125px;
-  background-color: #f4f4f8;
+  background-color: var(--lightgray);
   color: gray;
   margin: 10px 0 0.25rem 0;
   padding: 0.2rem;

@@ -80,7 +80,7 @@ const StyledEditInput = styled.input`
 const StyledEditButton = styled.button`
   border: none;
   border-radius: 5px;
-  background-color: #fed766;
+  background-color: var(--yellow);
   padding: 10px;
   font-family: PTSans;
 `;
@@ -91,17 +91,18 @@ const StyledIdeaContainer = styled.div`
   margin: auto auto 10px auto;
   width: 90%;
   word-wrap: break-word;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   padding: 10px 5px 10px 5px;
   border-radius: 5px;
   align-items: center;
+  box-shadow: 5px 5px 10px -5px #c4c4c7;
 `;
 
 const StyledIdea = styled.p`
   margin: auto;
   width: 90%;
   word-wrap: break-word;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   padding: 5px;
   border-radius: 5px;
   align-items: center;

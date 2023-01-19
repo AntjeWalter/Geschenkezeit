@@ -57,7 +57,7 @@ export default function Home({
 const StyledHeadingContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #fe4a49;
+  border-bottom: 2px solid var(--red);
   margin: 0 2rem 0 2rem;
   height: auto;
 `;

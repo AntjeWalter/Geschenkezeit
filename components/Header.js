@@ -13,8 +13,8 @@ export default function Header() {
 }
 
 const StyledHeader = styled.header`
-  background-color: #2ab7ca;
-  color: #f4f4f8;
+  background-color: var(--blue);
+  color: var(--lightgray);
   margin-bottom: 15px;
   padding: 15px;
   position: relative;
@@ -26,9 +26,3 @@ const StyledHeadline = styled.h1`
   position: absolute;
   left: 25%;
 `;
-
-// const StyledLogin = styled(Login)`
-//   position: absolute;
-//   top: 0;
-//   right: 5px;
-// `;

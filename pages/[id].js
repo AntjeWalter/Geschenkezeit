@@ -100,7 +100,7 @@ export default function ProfilePage({
 const StyledName = styled.h1`
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  border-bottom: 2px solid #fe4a49;
+  border-bottom: 2px solid var(--red);
 `;
 
 const StyledBirthday = styled.section`
@@ -108,7 +108,7 @@ const StyledBirthday = styled.section`
 `;
 
 const StyledProfileContainer = styled.section`
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   height: 70vh;
   margin: 20px;
   padding: 2px;
@@ -124,7 +124,7 @@ const StyledFooter = styled.footer`
 const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
-  background-color: #fed766;
+  background-color: var(--yellow);
   padding-top: 3px;
   margin: 0 0 5px 5px;
 `;

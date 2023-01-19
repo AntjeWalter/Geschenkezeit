@@ -82,7 +82,7 @@ export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
 const StyledHeading = styled.h2`
   margin-left: 30px;
   margin-right: 30px;
-  border-bottom: 2px solid #fe4a49;
+  border-bottom: 2px solid var(--red);
 `;
 
 const StyledIdeaList = styled.section`

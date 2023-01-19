@@ -84,7 +84,7 @@ const StyledButton = styled.button`
   width: 1.8rem;
   align-self: center;
   border: none;
-  background-color: #fed766;
+  background-color: var(--yellow);
   border-radius: 5px;
 `;
 

@@ -34,7 +34,7 @@ const StyledForm = styled.form`
   bottom: 20px;
   gap: 10px;
   margin-bottom: 34px;
-  background-color: #f4f4f8;
+  background-color: var(--lightgray);
   padding: 0.5rem 1rem 10px 1rem;
   max-width: 800px;
   width: 100vw;
@@ -43,14 +43,14 @@ const StyledForm = styled.form`
 
 const StyledInput = styled.input`
   border: none;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   text-align: center;
   flex-grow: 1;
   font-family: PTSans;
 `;
 
 const StyledButton = styled.button`
-  background-color: #fed766;
+  background-color: var(--yellow);
   border: none;
   border-radius: 5px;
   padding: 10px;

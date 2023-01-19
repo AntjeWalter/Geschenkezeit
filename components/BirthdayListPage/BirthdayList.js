@@ -106,7 +106,7 @@ const StyledAdaptedInput = styled.input`
 const StyledSubmitButton = styled.button`
   border: none;
   border-radius: 5px;
-  background-color: #fed766;
+  background-color: var(--yellow);
   flex-grow: 1;
   padding: 5px;
 `;
@@ -118,7 +118,7 @@ const StyledEntry = styled.section`
   margin-bottom: 10px;
   width: 90%;
   word-wrap: break-word;
-  background-color: #e6e6ea;
+  background-color: var(--darkgray);
   padding: 15px;
   border-radius: 5px;
   align-items: center;
