@@ -32,7 +32,7 @@ export default function Form({ onCreateEntry }) {
             type="text"
             placeholder="Name"
             name="name"
-            aria-label="Name Input"
+            aria-label="Eingabe Name"
             className="nameInput"
             required
           ></StyledNameInput>
@@ -40,7 +40,7 @@ export default function Form({ onCreateEntry }) {
             type="date"
             placeholder="Geburtstag"
             name="date"
-            aria-label="Birthday Input"
+            aria-label="Eingabe Geburtstag"
             className="dateInput"
             min="1900-01-01"
             required
@@ -49,10 +49,10 @@ export default function Form({ onCreateEntry }) {
             type="text"
             placeholder="Geschenkideen"
             name="idea"
-            aria-label="Idea Input"
+            aria-label="Eingabe Geschenkideen"
             className="ideaInput"
           ></StyledIdeaInput>
-          <StyledSubmitButton type="submit" aria-label="Submit Input">
+          <StyledSubmitButton type="submit" aria-label="Eintrag hinzufügen">
             Hinzufügen
           </StyledSubmitButton>
           <StyledCancelButton

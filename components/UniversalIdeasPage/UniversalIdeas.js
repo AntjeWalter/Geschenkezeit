@@ -28,9 +28,13 @@ export default function UniversalIdeas({
           <StyledEditInput
             type="text"
             name="adaptedIdea"
+            aria-label="Bearbeitete Idee"
             defaultValue={idea}
           ></StyledEditInput>
-          <StyledEditButton type="submit" aria-label="Save edited idea">
+          <StyledEditButton
+            type="submit"
+            aria-label="Bearbeitete Idee speichern"
+          >
             OK
           </StyledEditButton>
         </StyledForm>
@@ -39,7 +43,7 @@ export default function UniversalIdeas({
           <StyledIdea>{idea}</StyledIdea>
           <StyledButton
             type="button"
-            aria-label="Edit-Button"
+            aria-label="Bearbeiten-Button"
             onClick={() => setEdit(!edit)}
           >
             <BsPencil />
@@ -51,7 +55,7 @@ export default function UniversalIdeas({
           />
           <StyledButton
             type="button"
-            aria-label="Delete-Button"
+            aria-label="Löschen-Button"
             onClick={() => onDeleteIdea(id)}
           >
             <BsTrash2 />

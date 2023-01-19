@@ -7,15 +7,12 @@ export default function Login() {
   return (
     <>
       {session ? (
-        <StyledLogOutButton onClick={signOut} aria-label="Log out">
+        <StyledLogOutButton onClick={signOut} aria-label="Ausloggen">
           <FiLogOut size="20px" />
         </StyledLogOutButton>
       ) : (
         <>
-          <StyledLogInButton
-            onClick={() => signIn("github")}
-            aria-label="Log in"
-          >
+          <StyledLogInButton onClick={() => signIn()} aria-label="Einloggen">
             <FiLogIn /> Einloggen
           </StyledLogInButton>
           <StyledLogInFooter />
@@ -37,7 +34,6 @@ const StyledLogInFooter = styled.footer`
   max-width: 800px;
   position: fixed;
   bottom: 0;
-  left: 0;
 `;
 
 const StyledLogOutButton = styled.button`

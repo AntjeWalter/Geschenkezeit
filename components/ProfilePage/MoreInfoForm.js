@@ -33,12 +33,12 @@ export default function MoreInfoForm({
           <StyledForm onSubmit={handleNotesSubmit}>
             <StyledTextarea
               name="adaptedNotes"
-              aria-label="Edited Notes"
+              aria-label="Bearbeitete Notizen"
               placeholder="Was mag die Person? Was mag sie nicht?"
               defaultValue={currentProfile.notes}
               required
             ></StyledTextarea>
-            <StyledButton type="submit" aria-label="Save notes">
+            <StyledButton type="submit" aria-label="Notizen speichern">
               OK
             </StyledButton>
           </StyledForm>
@@ -47,7 +47,7 @@ export default function MoreInfoForm({
             <StyledNotes>{currentProfile.notes}</StyledNotes>
             <StyledButton
               type="button"
-              aria-label="Edit-Button"
+              aria-label="Bearbeiten-Button"
               onClick={() => setEdit(!edit)}
             >
               +

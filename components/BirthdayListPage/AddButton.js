@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function AddButton({ onClick }) {
   return (
-    <StyledButton onClick={onClick} aria-label="Open input">
+    <StyledButton onClick={onClick} aria-label="Formular öffnen">
       <BiPlusCircle size="35px" color="black" />
     </StyledButton>
   );

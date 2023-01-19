@@ -63,7 +63,7 @@ export default function CalendarFromReact({ entries }) {
           <Fragment key={birthday.id}>
             <StyledLink
               href={`/${birthday.id}`}
-              aria-label="Link to profile page"
+              aria-label="Link zur Profilseite"
             >
               {birthday.name}
               <BiChevronRight size="3.5vh" color="fed766" />

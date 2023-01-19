@@ -16,10 +16,10 @@ export default function IdeasForm({ onCreateIdea }) {
         type="text"
         placeholder="Ideen..."
         name="ideas"
-        aria-label="Ideas Input"
+        aria-label="Eingabe Ideen"
         required
       ></StyledInput>
-      <StyledButton type="submit" aria-label="Submit Input">
+      <StyledButton type="submit" aria-label="Eingabe speichern">
         OK
       </StyledButton>
     </StyledForm>

@@ -34,11 +34,11 @@ export default function MoreIdeasForm({
           <StyledForm onSubmit={handleSubmit}>
             <StyledTextArea
               name="ideas"
-              aria-label="Ideas for presents"
+              aria-label="Eingabe Geschenkideen"
               defaultValue={currentProfile.ideas}
               placeholder="Was könnte man der Person schenken?"
             ></StyledTextArea>
-            <StyledButton type="submit" aria-label="Save ideas">
+            <StyledButton type="submit" aria-label="Ideen speichern">
               OK
             </StyledButton>
           </StyledForm>

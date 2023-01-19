@@ -23,6 +23,5 @@ const StyledHeader = styled.header`
 
 const StyledHeadline = styled.h1`
   margin: 0;
-  position: absolute;
-  left: 25%;
+  text-align: center;
 `;
