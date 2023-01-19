@@ -127,4 +127,5 @@ const StyledButton = styled.button`
   background-color: var(--yellow);
   padding-top: 3px;
   margin: 0 0 5px 5px;
+  box-shadow: 3px 3px 10px -3px #a6a6a6;
 `;

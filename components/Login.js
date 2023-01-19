@@ -23,17 +23,16 @@ export default function Login() {
 }
 
 const StyledLogInFooter = styled.footer`
-  display: flex;
-  justify-content: space-around;
   text-align: center;
   background-color: #2ab7ca;
   color: #f4f4f8;
   padding: 10px;
-  width: 100vw;
+  width: 100%;
   height: 50px;
   max-width: 800px;
   position: fixed;
   bottom: 0;
+  margin-left: -15px;
 `;
 
 const StyledLogOutButton = styled.button`
