@@ -69,7 +69,7 @@ const StyledHeadingContainer = styled.section`
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid var(--red);
-  margin: 0 2rem 0 2rem;
+  margin: 0 2rem;
   height: auto;
 `;
 
@@ -86,7 +86,7 @@ const StyledSection = styled.section`
 const StyledEmptyState = styled.p`
   display: block;
   text-align: center;
-  margin: 0 20px 0 20px;
+  margin: 0 20px;
   font-size: 1.1rem;
 `;
 

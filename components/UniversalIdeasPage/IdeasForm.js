@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import styled from "styled-components";
 
 export default function IdeasForm({ onCreateIdea }) {
