@@ -8,7 +8,7 @@
 
 Diese App ermöglicht es dir, Geburtstage von Familie und Freunden zu speichern und über das Jahr verteilt Geschenkideen zu sammeln. So hast du immer eine Idee parat, wenn ein Geburtstag oder Weihnachten vor der Tür steht. Der Kalender bietet außerdem eine Übersicht über alle eingetragenen Geburtstage.
 
-[Hier klicken](https://geschenkezeit-b6e2vl13g-antjewalter.vercel.app/), um zur App zu gelangen.
+[Hier klicken](https://capstone-project-geschenkezeit.vercel.app/), um zur App zu gelangen.
 
 ### `Login`
 
