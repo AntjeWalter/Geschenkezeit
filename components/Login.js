@@ -23,24 +23,24 @@ export default function Login() {
 }
 
 const StyledLogInFooter = styled.footer`
+  position: fixed;
   text-align: center;
   background-color: #2ab7ca;
   color: #f4f4f8;
+  margin-left: -15px;
   padding: 10px;
   width: 100%;
-  height: 50px;
   max-width: 800px;
-  position: fixed;
+  height: 50px;
   bottom: 0;
-  margin-left: -15px;
 `;
 
 const StyledLogOutButton = styled.button`
   border: none;
   border-radius: 5px;
+  margin-right: 0.5rem;
   padding-top: 3px;
   text-align: right;
-  margin-right: 0.5rem;
   position: absolute;
   top: 25px;
   right: 5px;

@@ -93,10 +93,10 @@ const StyledIdeaContainer = styled.div`
   display: grid;
   grid-template-columns: 80% 20%;
   margin: auto auto 10px auto;
+  padding: 10px 5px 10px 5px;
   width: 90%;
   word-wrap: break-word;
   background-color: var(--darkgray);
-  padding: 10px 5px 10px 5px;
   border-radius: 5px;
   align-items: center;
   box-shadow: 5px 5px 10px -5px #c4c4c7;
@@ -104,10 +104,10 @@ const StyledIdeaContainer = styled.div`
 
 const StyledIdea = styled.p`
   margin: auto;
+  padding: 5px;
   width: 90%;
   word-wrap: break-word;
   background-color: var(--darkgray);
-  padding: 5px;
   border-radius: 5px;
   align-items: center;
 `;

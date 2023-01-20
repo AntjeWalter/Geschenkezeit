@@ -29,7 +29,6 @@ const StyledFooter = styled.footer`
   text-align: center;
   background-color: var(--blue);
   color: var(--lightgray);
-  margin-block: 0px;
   padding: 10px;
   width: 100vw;
   max-width: 800px;

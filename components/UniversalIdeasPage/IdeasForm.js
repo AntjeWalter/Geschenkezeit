@@ -5,7 +5,7 @@ export default function IdeasForm({ onCreateIdea }) {
   function handleSubmit(event) {
     event.preventDefault();
     const idea = event.target.ideas.value;
-    const newIdea = { idea, id: nanoid() };
+    const newIdea = { idea };
     onCreateIdea(newIdea);
     event.target.reset();
   }
@@ -34,8 +34,8 @@ const StyledForm = styled.form`
   bottom: 20px;
   gap: 10px;
   margin-bottom: 34px;
-  background-color: var(--lightgray);
   padding: 0.5rem 1rem 10px 1rem;
+  background-color: var(--lightgray);
   max-width: 800px;
   width: 100vw;
   box-shadow: 0px -10px 10px -5px #c4c4c4;
