@@ -2,7 +2,7 @@
 
 > Capstone Project für Web Development Bootcamp
 
-![Geschenkezeit Demo](/public/assets/Geschenkezeit%20Demo.png)
+![Geschenkezeit Demo](/public/assets/Geschenkezeit_Demo.png)
 
 ### `Beschreibung`
 
