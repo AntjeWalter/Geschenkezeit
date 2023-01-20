@@ -6,6 +6,8 @@ import styled from "styled-components";
 import { useState, useEffect, Fragment } from "react";
 import fetchData from "../helpers/fetchData";
 import { useSession } from "next-auth/react";
+import Lottie from "lottie-react";
+import Empty_State from "../public/assets/Empty_State.json";
 
 export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
   const { data: session } = useSession();
@@ -56,18 +58,27 @@ export default function UniversalIdeasPage({ entries, onIdeaAssign }) {
         <>
           <StyledHeading>Allgemeine Geschenkideen</StyledHeading>
           <StyledIdeaList>
-            {ideas.map((idea) => (
-              <Fragment key={idea.id}>
-                <UniversalIdeas
-                  idea={idea.idea}
-                  onUpdateIdea={handleUpdateIdea}
-                  onDeleteIdea={handleDeleteIdea}
-                  onIdeaAssign={onIdeaAssign}
-                  id={idea.id}
-                  entries={entries}
-                />
-              </Fragment>
-            ))}
+            {ideas.length === 0 ? (
+              <>
+                <StyledEmptyState>
+                  Hier fehlt es noch an Ideen...
+                </StyledEmptyState>
+                <Lottie animationData={Empty_State} loop={true} />
+              </>
+            ) : (
+              ideas.map((idea) => (
+                <Fragment key={idea.id}>
+                  <UniversalIdeas
+                    idea={idea.idea}
+                    onUpdateIdea={handleUpdateIdea}
+                    onDeleteIdea={handleDeleteIdea}
+                    onIdeaAssign={onIdeaAssign}
+                    id={idea.id}
+                    entries={entries}
+                  />
+                </Fragment>
+              ))
+            )}
           </StyledIdeaList>
           <StyledFooter>
             <IdeasForm onCreateIdea={handleCreateIdea} />
@@ -83,6 +94,11 @@ const StyledHeading = styled.h2`
   margin-left: 30px;
   margin-right: 30px;
   border-bottom: 2px solid var(--red);
+`;
+
+const StyledEmptyState = styled.p`
+  text-align: center;
+  font-size: 1.1rem;
 `;
 
 const StyledIdeaList = styled.section`
