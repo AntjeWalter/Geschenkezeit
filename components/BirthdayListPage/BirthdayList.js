@@ -92,8 +92,8 @@ const StyledEditForm = styled.form`
   display: flex;
   flex-wrap: wrap;
   margin-left: 25px;
-  padding: 5px;
   margin-right: 25px;
+  padding: 5px;
 `;
 
 const StyledAdaptedInput = styled.input`
@@ -116,10 +116,10 @@ const StyledEntry = styled.section`
   grid-template-columns: 80% 20%;
   margin: auto;
   margin-bottom: 10px;
+  padding: 15px;
   width: 90%;
   word-wrap: break-word;
   background-color: var(--darkgray);
-  padding: 15px;
   border-radius: 5px;
   align-items: center;
   box-shadow: 5px 5px 10px -5px #c4c4c7;
@@ -137,9 +137,9 @@ const StyledLink = styled(Link)`
 
 const StyledTextAlign = styled.div`
   text-align: right;
+  align-self: center;
   word-wrap: break-word;
   font-size: 0.8rem;
-  align-self: center;
 `;
 
 const StyledButton = styled.button`

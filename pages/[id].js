@@ -64,7 +64,9 @@ export default function ProfilePage({
             <StyledBirthday>
               <p>
                 Geburtstag:{" "}
-                {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
+                <StyledAge>
+                  {format(new Date(currentProfile.birthday), "dd.MM.yyyy")}
+                </StyledAge>
               </p>
               <p>
                 {calculateDaysUntilBirthday()}{" "}
@@ -105,6 +107,10 @@ const StyledName = styled.h1`
 
 const StyledBirthday = styled.section`
   margin-left: 1.5rem;
+`;
+
+const StyledAge = styled.span`
+  font-family: PTSans-Bold;
 `;
 
 const StyledProfileContainer = styled.section`

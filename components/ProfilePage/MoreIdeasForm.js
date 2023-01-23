@@ -76,7 +76,7 @@ const StyledTextArea = styled.textarea`
   font-family: PTSans;
   font-size: 0.9rem;
   @media (min-width: 800px) {
-    width: 700px;
+    width: 680px;
   }
 `;
 
@@ -85,14 +85,13 @@ const StyledButton = styled.button`
   width: 1.8rem;
   align-self: center;
   border: none;
-  background-color: var(--yellow);
   border-radius: 5px;
+  background-color: var(--yellow);
 `;
 
 const StyledNotesWrapper = styled.div`
   display: flex;
-  margin: 1.5rem;
-  margin-top: 1rem;
+  margin: 1rem 1.5rem 1.5rem 1.5rem;
   justify-content: space-between;
 `;
 

@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { useState } from "react";
 import styled from "styled-components";
 import AddButton from "./AddButton";
@@ -14,7 +13,6 @@ export default function Form({ onCreateEntry }) {
     const dateInput = event.target.date.value;
 
     const newEntry = {
-      id: nanoid(),
       name: nameInput,
       birthday: dateInput,
       ideas: ideaInput,
@@ -84,9 +82,8 @@ const StyledForm = styled.form`
   bottom: 20px;
   gap: 10px;
   margin-bottom: 34px;
+  padding: 0.5rem 1.2rem 1.2rem 1.2rem;
   background-color: var(--lightgray);
-  padding: 1.2rem;
-  padding-top: 0.5rem;
   max-width: 800px;
   width: 100vw;
   box-shadow: 0px -4px 10px 5px #c4c4c4;

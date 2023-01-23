@@ -60,8 +60,7 @@ export default function MoreInfoForm({
 }
 
 const StyledInfo = styled.h3`
-  margin: 1.5rem;
-  margin-bottom: 1rem;
+  margin: 1.5rem 1.5rem 1rem 1.5rem;
   font-size: 1.25rem;
   border-bottom: 1px solid black;
 `;
@@ -84,8 +83,8 @@ const StyledButton = styled.button`
   width: 1.8rem;
   align-self: center;
   border: none;
-  background-color: var(--yellow);
   border-radius: 5px;
+  background-color: var(--yellow);
 `;
 
 const StyledForm = styled.form`

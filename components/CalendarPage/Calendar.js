@@ -81,13 +81,12 @@ const StyledNameContainer = styled.section`
 
 const StyledLink = styled(Link)`
   margin: 0.5rem 2rem 0.5rem 2rem;
-  display: block;
+  padding: 0.5rem;
+  display: flex;
   background-color: var(--darkgray);
   border-radius: 5px;
-  padding: 0.5rem;
   text-decoration: none;
   color: black;
-  display: flex;
   justify-content: space-between;
   box-shadow: 5px 5px 10px -5px #c4c4c7;
 `;
@@ -105,9 +104,9 @@ const StyledCalendarContainer = styled.section`
   .react-calendar {
     border: none;
     border-radius: 4px;
+    margin: auto;
     padding: 3px;
     box-shadow: 2px 2px 15px 2px #c4c4c4;
-    margin: auto;
   }
   .react-calendar__month-view__days {
     display: grid !important;
