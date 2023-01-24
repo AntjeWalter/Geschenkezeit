@@ -19,6 +19,7 @@ export default function Home({
   onSorting,
 }) {
   const { data: session } = useSession();
+  console.log("testi");
 
   return (
     <>
