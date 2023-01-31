@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import UniversalIdeas from "./UniversalIdeas";
+import UniversalIdeaEntry from "./UniversalIdeaEntry";
 
 test("renders an idea", (entries = []) => {
-  render(<UniversalIdeas idea={"Idea"} entries={entries} />);
+  render(<UniversalIdeaEntry idea={"Idea"} entries={entries} />);
   const idea = screen.getByTestId("idea");
   expect(idea).toBeInTheDocument();
 });

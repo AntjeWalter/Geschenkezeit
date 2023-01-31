@@ -3,7 +3,7 @@ import { useState } from "react";
 import AssignSelect from "./AssignSelect";
 import { BsTrash2, BsPencil } from "react-icons/bs";
 
-export default function UniversalIdeas({
+export default function UniversalIdeaEntry({
   idea,
   id,
   onUpdateIdea,
