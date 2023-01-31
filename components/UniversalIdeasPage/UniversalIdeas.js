@@ -39,7 +39,7 @@ export default function UniversalIdeas({
           </StyledEditButton>
         </StyledForm>
       ) : (
-        <StyledIdeaContainer>
+        <StyledIdeaContainer data-testid="idea">
           <StyledIdea>{idea}</StyledIdea>
           <StyledButton
             type="button"

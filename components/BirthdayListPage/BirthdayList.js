@@ -58,7 +58,7 @@ export default function BirthdayList({
           <StyledSubmitButton type="submit">OK</StyledSubmitButton>
         </StyledEditForm>
       ) : (
-        <StyledEntry>
+        <StyledEntry data-testid="entry">
           <StyledLink href={`/${id}`}>
             <p>{name}</p>
             <p>{ideas}</p>

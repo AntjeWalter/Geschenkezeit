@@ -49,7 +49,7 @@ export default function CalendarFromReact({ entries }) {
 
   return (
     <>
-      <StyledCalendarContainer>
+      <StyledCalendarContainer data-testid="calendar">
         <Calendar
           locale="de-DE"
           tileContent={tileContent}

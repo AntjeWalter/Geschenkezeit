@@ -41,6 +41,7 @@ export default function Form({ onCreateEntry }) {
             aria-label="Eingabe Geburtstag"
             className="dateInput"
             min="1900-01-01"
+            max="3000-12-31"
             required
           />
           <StyledIdeaInput
