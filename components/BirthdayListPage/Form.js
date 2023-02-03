@@ -25,13 +25,14 @@ export default function Form({ onCreateEntry }) {
   return (
     <>
       {formActive === true ? (
-        <StyledForm onSubmit={handleSubmit}>
+        <StyledForm onSubmit={handleSubmit} data-testid="form">
           <StyledNameInput
             type="text"
             placeholder="Name"
             name="name"
             aria-label="Eingabe Name"
             className="nameInput"
+            data-testid="NameInput"
             required
           ></StyledNameInput>
           <StyledDateInput
@@ -64,6 +65,7 @@ export default function Form({ onCreateEntry }) {
         </StyledForm>
       ) : (
         <AddButton
+          data-testid="addButton"
           onClick={() => {
             setFormActive(true);
           }}

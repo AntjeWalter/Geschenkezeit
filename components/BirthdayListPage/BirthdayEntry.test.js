@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import BirthdayList from "./BirthdayList";
+import BirthdayEntry from "./BirthdayEntry";
 
 test("renders an entry as a section", () => {
   const entry = {
@@ -13,7 +13,7 @@ test("renders an entry as a section", () => {
   const onDelete = jest.fn();
   const onUpdateEntry = jest.fn();
   render(
-    <BirthdayList
+    <BirthdayEntry
       id={entry.id}
       name={entry.name}
       birthday={entry.birthday}
