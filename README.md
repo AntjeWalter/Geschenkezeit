@@ -1,6 +1,6 @@
 # Willkommen bei Geschenkezeit!
 
-> Capstone Project für Web Development Bootcamp
+> Capstone Project für Web Development Bootcamp bei neuefische GmbH
 
 ![Geschenkezeit Demo](/public/assets/Geschenkezeit_Demo.png)
 
