@@ -59,6 +59,5 @@ test("REAL Form is shown after clicking AddButton", async () => {
   const addButton = screen.queryByTestId("addButton");
   await user.click(addButton);
   const form = screen.queryByTestId("form");
-  screen.debug(form);
   expect(form).toBeInTheDocument();
 });
