@@ -4,6 +4,9 @@
 
 ![Geschenkezeit Demo](/public/assets/Geschenkezeit_Demo.png)
 
+
+Achtung: Aktuell funktioniert diese App nur eingeschränkt, das die Connection zur Datenbank unterbrochen ist.
+
 ### `Beschreibung`
 
 Diese App ermöglicht es dir, Geburtstage von Familie und Freunden zu speichern und über das Jahr verteilt Geschenkideen zu sammeln. So hast du immer eine Idee parat, wenn ein Geburtstag oder Weihnachten vor der Tür steht. Der Kalender bietet außerdem eine Übersicht über alle eingetragenen Geburtstage.
