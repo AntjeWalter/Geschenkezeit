@@ -31,7 +31,6 @@ const providers = [
 
 export const authOptions = {
   providers,
-  secret: process.env.NEXT_PUBLIC_SECRET,
 };
 
 export default NextAuth(authOptions);
