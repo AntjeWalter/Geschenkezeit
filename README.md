@@ -4,9 +4,6 @@
 
 ![Geschenkezeit Demo](/public/assets/Geschenkezeit_Demo.png)
 
-
-**Achtung:** Aktuell funktioniert diese App nur eingeschränkt, das die Connection zur Datenbank unterbrochen ist.
-
 ### `Beschreibung`
 
 Diese App ermöglicht es dir, Geburtstage von Familie und Freunden zu speichern und über das Jahr verteilt Geschenkideen zu sammeln. So hast du immer eine Idee parat, wenn ein Geburtstag oder Weihnachten vor der Tür steht. Der Kalender bietet außerdem eine Übersicht über alle eingetragenen Geburtstage.
@@ -21,6 +18,7 @@ Nutzung zu Präsentationszwecken (_Hinweis: eingetragene Daten werden gespeicher
         Password: Geburtstagskind
 
 Um die App persönlich zu nutzen, melde dich mit deinem **GitHub-Profil** an. So kannst du deine abgespeicherten Geburtstage und Ideen jederzeit abrufen und erweitern.
+**Achtung:** Falls der Login über GitHub beim ersten mal nicht funktioniert, muss der Login evtl. ein zweites Mal versucht werden, damit es klappt.
 
 ### `Tech Stack`
 
