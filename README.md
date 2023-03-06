@@ -5,7 +5,7 @@
 ![Geschenkezeit Demo](/public/assets/Geschenkezeit_Demo.png)
 
 
-Achtung: Aktuell funktioniert diese App nur eingeschränkt, das die Connection zur Datenbank unterbrochen ist.
+**Achtung:** Aktuell funktioniert diese App nur eingeschränkt, das die Connection zur Datenbank unterbrochen ist.
 
 ### `Beschreibung`
 
